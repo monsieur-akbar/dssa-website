@@ -1041,9 +1041,7 @@ export default function EventsPage() {
                             Upcoming Events
                         </h2>
                     </div>
-                    <span className="hidden sm:block text-xs text-slate-400">
-                        Hover cards to watch the snake slither & swirl into a coil!
-                    </span>
+
                 </div>
 
                 {/* 1.1 FLAGSHIP BOOTCAMP CARD */}
