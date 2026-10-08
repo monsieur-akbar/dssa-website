@@ -1,1 +1,110 @@
-[]
+{
+  "faculty": {
+    "name": "Faculty Coordinator Name",
+    "designation": "Assistant Professor",
+    "department": "Department of Computer Engineering, VIT Pune",
+    "bio": "Guides DSSA's activities, mentors student teams and works with the department to bring industry and research exposure to members.",
+    "photo": null,
+    "linkedin": "https://www.linkedin.com/in/your-handle",
+    "github": null
+  },
+  "committee": [
+    {
+      "id": "core",
+      "title": "Core Members",
+      "description": "Leads the club and keeps every team moving together.",
+      "accent": "blue",
+      "members": [
+        {"name": "Kartik Jadhav", "role": "President", "photo": null, "linkedin": null, "github": null},
+        {"name": "Tejas Raut", "role": "Vice President", "photo": null, "linkedin": null, "github": null},
+        {"name": "Aditi Kadam", "role": "Secretary", "photo": null, "linkedin": null, "github": null},
+        {"name": "Neel Agarwal", "role": "Treasurer", "photo": null, "linkedin": null, "github": null},
+        {"name": "Sherayu Itkikar", "role": "Public Relations Officer (PRO)", "photo": null, "linkedin": null, "github": null},
+        {"name": "Aryan Fating", "role": "Event Coordinator", "photo": null, "linkedin": null, "github": null}
+      ]
+    },
+    {
+      "id": "events",
+      "title": "Event Management",
+      "description": "Plans and runs workshops, speaker sessions and competitions.",
+      "accent": "emerald",
+      "members": [
+        {"name": "Aditya Amale", "role": "Event Head", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Swaroop Ghode", "role": "Event Coordinator", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null}
+        
+      ]
+    },
+    {
+      "id": "aesthetics",
+      "title": "Aesthetics",
+      "description": "Shapes how DSSA looks across posters, social media and venues.",
+      "accent": "violet",
+      "members": [
+        {"name": "Aryan Gupta", "role": "Design Head", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Anis Yelurkar", "role": "Graphic Designer", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null}
+      ]
+    },
+    {
+      "id": "documentation",
+      "title": "Documentation",
+      "description": "Keeps records, reports and minutes of everything DSSA does.",
+      "accent": "amber",
+      "members": [
+        {"name": "Anika Aswar", "role": "Documentation Head", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Arnav Wakekar", "role": "Report Writer", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null}
+      ]
+    },
+    {
+      "id": "finance",
+      "title": "Finance",
+      "description": "Manages the club's budget, expenses and fund tracking.",
+      "accent": "teal",
+      "members": [
+        {"name": "Atharva Agrawal", "role": "Finance Head", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Supesh Sonar", "role": "Finance Coordinator", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null}
+      ]
+    },
+    {
+      "id": "multimedia",
+      "title": "Multimedia",
+      "description": "Captures and edits photos and videos from every event.",
+      "accent": "rose",
+      "members": [
+        {"name": "Omkar Panhale", "role": "Photographer", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Shivam Sonawane", "role": "Video Editor", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null}
+      ]
+    },
+    {
+      "id": "publicity",
+      "title": "Publicity & Outreach",
+      "description": "Spreads the word on campus and connects DSSA with other clubs and colleges.",
+      "accent": "orange",
+      "members": [
+        {"name": "Member Name", "role": "Publicity Head", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Member Name", "role": "Outreach Lead", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Member Name", "role": "Social Media Lead", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null}
+      ]
+    },
+    {
+      "id": "sponsorship",
+      "title": "Sponsorship",
+      "description": "Builds partnerships with companies and sponsors for DSSA events.",
+      "accent": "pink",
+      "members": [
+        {"name": "Payal", "role": "Sponsorship Head", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null},
+        {"name": "Shreyas Pisal", "role": "Sponsorship Coordinator", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": null}
+      ]
+    },
+    {
+      "id": "technical",
+      "title": "Technical",
+      "description": "Runs project teams, learning tracks and the club's website.",
+      "accent": "cyan",
+      "members": [
+        {"name": "Akbar Pathan", "role": "Technical Head", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": "https://github.com/your-handle"},
+       
+        {"name": "Mahesh Chavan", "role": "Web Developer", "photo": null, "linkedin": "https://www.linkedin.com/in/your-handle", "github": "https://github.com/your-handle"}
+      ]
+    }
+  ]
+}
