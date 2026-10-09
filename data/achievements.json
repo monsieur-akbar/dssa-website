@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "National Hackathon Victory",
+    "category": "Hackathons",
+    "year": "2026",
+    "position": "1st Place",
+    "team": "DSSA Innovation Team",
+    "description": "The team secured first place in a national-level hackathon by developing an innovative data-driven solution to a real-world problem.",
+    "images": [
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72",
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
+    ],
+    "link": "https://example.com"
+  },
+  {
+    "id": 2,
+    "title": "Research Paper Publication",
+    "category": "Research",
+    "year": "2026",
+    "position": "Published",
+    "team": "DSSA Research Group",
+    "description": "A student research team successfully published a research paper exploring innovative approaches in data science and intelligent systems.",
+    "images": [
+      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32",
+      "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0",
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173"
+    ],
+    "link": "https://example.com"
+  },
+  {
+    "id": 3,
+    "title": "Outstanding Student Achievement",
+    "category": "Milestones",
+    "year": "2026",
+    "position": "Excellence Award",
+    "team": "DSSA Student Community",
+    "description": "A DSSA student was recognized for outstanding technical performance, innovation and contribution to the student community.",
+    "images": [
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
+      "https://images.unsplash.com/photo-1564981797816-1043664bf78d",
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+    ],
+    "link": "https://example.com"
+  },
+  {
+    "id": 4,
+    "title": "Inter-College Innovation Challenge",
+    "category": "Hackathons",
+    "year": "2025",
+    "position": "Finalist",
+    "team": "DSSA Tech Team",
+    "description": "The team reached the final round of an inter-college innovation challenge after presenting a technology-driven solution.",
+    "images": [
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72"
+    ],
+    "link": "https://example.com"
+  },
+  {
+    "id": 5,
+    "title": "Data Science Excellence",
+    "category": "Milestones",
+    "year": "2025",
+    "position": "Top Performer",
+    "team": "DSSA Data Science Team",
+    "description": "Recognition for exceptional performance in data science, analytics and technical project development.",
+    "images": [
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+    ],
+    "link": "https://example.com"
+  }
+]
