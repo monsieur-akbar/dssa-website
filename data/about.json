@@ -1,0 +1,69 @@
+{
+  "vision": {
+    "title": "Our Vision",
+    "text": "A campus where every student can learn data science by doing, and graduate ready to turn data into decisions that matter."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "text": "Run hands-on workshops, project teams and competitions that take students from their first notebook to shipped work, and connect them with mentors, peers and opportunities."
+  },
+  "objectives": [
+    {
+      "icon": "graduation",
+      "title": "Hands-on learning",
+      "description": "Workshops and study tracks covering Python, statistics, machine learning and data engineering."
+    },
+    {
+      "icon": "code",
+      "title": "Real projects",
+      "description": "Student teams that build and ship data and ML projects beyond coursework."
+    },
+    {
+      "icon": "trophy",
+      "title": "Competitions",
+      "description": "Prepare and send teams to hackathons and data challenges."
+    },
+    {
+      "icon": "users",
+      "title": "Peer community",
+      "description": "A welcoming space for first-years to final-years to learn together."
+    },
+    {
+      "icon": "lightbulb",
+      "title": "Mentorship",
+      "description": "Guidance from faculty and seniors on projects, research and careers."
+    },
+    {
+      "icon": "briefcase",
+      "title": "Opportunities",
+      "description": "Internships, research openings and industry exposure shared with members."
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2022",
+      "title": "DSSA is founded",
+      "description": "A small group of students and a faculty coordinator start the association at VIT Pune."
+    },
+    {
+      "year": "2023",
+      "title": "First workshop series",
+      "description": "Beginner-friendly sessions on Python and data analysis open the club to the wider campus."
+    },
+    {
+      "year": "2024",
+      "title": "First hackathon podium",
+      "description": "DSSA teams start competing at inter-college hackathons and bring home their first wins."
+    },
+    {
+      "year": "2025",
+      "title": "Project showcase",
+      "description": "Members present their year-long projects to peers, faculty and industry guests."
+    },
+    {
+      "year": "2026",
+      "title": "Official website launch",
+      "description": "The club gets a home online for events, projects, learning resources and opportunities."
+    }
+  ]
+}

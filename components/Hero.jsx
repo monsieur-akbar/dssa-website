@@ -156,7 +156,7 @@ export default function Hero() {
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <a
-                    href="#about"
+                    href="/about"
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white hover:bg-zinc-200 text-black font-semibold text-xs sm:text-sm rounded-lg transition-colors shadow-sm"
                   >
                     <span>Discover DSSA</span>
@@ -164,7 +164,7 @@ export default function Hero() {
                   </a>
 
                   <a
-                    href="#events"
+                    href="/events"
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-800 hover:border-zinc-700 font-semibold text-xs sm:text-sm rounded-lg transition-colors"
                   >
                     <Terminal className="w-3.5 h-3.5 text-zinc-400" />

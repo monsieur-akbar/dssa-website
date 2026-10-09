@@ -85,3 +85,108 @@
     "leads": ["Tanvi Patel", "Sanya Kapoor"]
   }
 ]
+{
+  "featuredImages": [
+    "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+    "https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Smart Cold Storage",
+      "domain": "AI/ML",
+      "description": "An intelligent cold-storage monitoring system that tracks environmental conditions and helps identify potential spoilage risks.",
+      "technologies": [
+        "Next.js",
+        "Firebase",
+        "IoT",
+        "AI/ML"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+        "https://images.unsplash.com/photo-1518770660439-4636190af475",
+        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 2,
+      "title": "CivicPulse",
+      "domain": "AI/ML",
+      "description": "A smart civic grievance platform that allows citizens to report public issues using photographs, location information and digital tracking.",
+      "technologies": [
+        "React",
+        "Python",
+        "Machine Learning",
+        "Firebase"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
+        "https://images.unsplash.com/photo-1521737711867-e3b97375f902",
+        "https://images.unsplash.com/photo-1556761175-b413da4baf72"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 3,
+      "title": "VendorIQ",
+      "domain": "Data Analytics",
+      "description": "A vendor evaluation platform that processes business datasets and generates analytical insights and reports for decision making.",
+      "technologies": [
+        "Python",
+        "Flask",
+        "Pandas",
+        "Matplotlib"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+        "https://images.unsplash.com/photo-1543286386-713bdd548da4"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 4,
+      "title": "Emergency Communication Network",
+      "domain": "Web Development",
+      "description": "A network-based emergency communication architecture designed to coordinate communication between critical departments during disaster situations.",
+      "technologies": [
+        "Cisco Packet Tracer",
+        "Networking",
+        "ACL",
+        "DHCP"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+        "https://images.unsplash.com/photo-1551808525-51a94da548ce"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 5,
+      "title": "Data Intelligence Research",
+      "domain": "Research",
+      "description": "A research-oriented project exploring data-driven methods for extracting meaningful patterns and supporting intelligent decision making.",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Statistics",
+        "Machine Learning"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1535378917042-10a22c95931a",
+        "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+        "https://images.unsplash.com/photo-1516116216624-53e697fedbea"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    }
+  ]
+}
