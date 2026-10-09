@@ -785,147 +785,39 @@ function CartoonSnakeMascot({ targetCardId, sectionRef, cardRefs }) {
 
 // Sample Data Structure
 const FLAGSHIP_BOOTCAMP = {
-    id: 'bootcamp-2026',
-    title: 'DSSA Unplugged',
-    tag: 'Flagship Multi-Day Event',
-    date: 'October 26 - 27, 2026',
-    time: '4:00 PM - 7:00 PM IST',
-    venue: 'D-Building , Class D201',
-    capacity: '150 Seats',
-    registeredCount: 118,
+    id: 'dssa-fest-2026',
+    title: 'DSSA Fest 2026',
+    tag: 'Flagship Event',
+    date: 'October 13 - 14, 2026',
+    time: '10:00 AM Onwards',
+    venue: 'Main Campus',
+    capacity: '300 Seats',
+    registeredCount: 85,
     isUpcoming: true,
     category: 'Event',
-    description: `Get ready for the ultimate annual fest of the Data Science Student Association (DSSA)! This isn’t just another event — it’s a full-blown celebration of data, design, and innovation crafted exclusively for you. 
-  
-`,
+    description: `Join us for our two-day extravaganza! Day 1 is dedicated to a vibrant cultural celebration, and Day 2 kicks off our intense Hackathon.`,
     days: [
         {
             day: 'Day 1',
-            date: 'Nov 15',
-            title: 'Python Fundamentals & Data Wrangling',
-            desc: 'Master list comprehensions, NumPy vectorization, data cleaning pipelines, and robust data preprocessing techniques.',
-            topics: ['NumPy Matrices', 'Pandas Series & DataFrames', 'Handling Nulls & Outliers'],
-            badge: 'Beginner to Intermediate',
+            date: 'Oct 13',
+            title: 'Cultural Event',
+            desc: 'A grand celebration featuring music, arts, and cultural performances by students. (Information only, no registration required).',
+            topics: ['Music', 'Arts', 'Performances'],
+            badge: 'Open to All',
         },
         {
             day: 'Day 2',
-            date: 'Nov 16',
-            title: 'Exploratory Data Analysis (EDA) & Visualization',
-            desc: 'Uncover deep insights using Seaborn, Matplotlib, and Plotly interactive charts with real-world case study datasets.',
-            topics: ['Statistical Distributions', 'Correlation Heatmaps', 'Interactive Storytelling'],
-            badge: 'Analytical Mastery',
-        },
-        {
-            day: 'Day 3',
-            date: 'Nov 17',
-            title: 'Applied Machine Learning & Scikit-Learn',
-            desc: 'Build, tune, and evaluate regression and classification algorithms with feature engineering and cross-validation.',
-            topics: ['Random Forests', 'Hyperparameter Tuning', 'Model Evaluation Metrics'],
-            badge: 'Core ML Foundations',
-        },
-        {
-            day: 'Day 4',
-            date: 'Nov 18',
-            title: 'Live ML Hackathon & Capstone Project',
-            desc: 'Compete in teams to solve a live Kaggle-style challenge, deploy lightweight models, and win prizes & certificates.',
-            topics: ['Model Deployment', 'Speed Kaggle Challenge', 'Prize Ceremony'],
-            badge: 'Competition & Awards',
-        },
+            date: 'Oct 14',
+            title: 'Annual Hackathon',
+            desc: 'A 24-hour hackathon where teams compete to build innovative solutions. Register now to secure your spot!',
+            topics: ['Coding', 'Innovation', 'Prizes'],
+            badge: 'Registration Open',
+        }
     ],
 };
 
-const UPCOMING_EVENTS = [
-    {
-        id: 'up-1',
-        title: 'Neural Networks & Deep Learning Deep-Dive',
-        date: 'December 05, 2026',
-        time: '2:30 PM - 5:30 PM',
-        venue: 'Computer Lab 3 & Discord',
-        capacity: '80 Seats',
-        category: 'Hands-on Workshop',
-        isUpcoming: true,
-        description: `A hands-on introduction to building neural network architectures from scratch using PyTorch and TensorFlow. Learn forward propagation, loss optimization, and CNNs for image classification.`,
-        speaker: 'Dr. Vivek Sharma (AI Research Lead)',
-        level: 'Intermediate',
-    },
-    {
-        id: 'up-2',
-        title: 'DataStorm 2026: 24-Hour Datathon',
-        date: 'December 20 - 21, 2026',
-        time: '10:00 AM Onwards',
-        venue: 'Campus Innovation Center',
-        capacity: '300 Participants (Teams of 3-4)',
-        category: 'Hackathon',
-        isUpcoming: true,
-        description: `Our premier annual datathon where students solve pressing industry problems across Healthcare, Fintech, and Climate Analytics. Mentorship from top data leaders and ₹50,000+ prize pool.`,
-        speaker: 'Industry Judges & DSSA Alumni',
-        level: 'All Skill Levels',
-    },
-    {
-        id: 'up-3',
-        title: 'Industry Connect: Career Pathways in Big Data & GenAI',
-        date: 'January 10, 2027',
-        time: '5:00 PM - 6:30 PM',
-        venue: 'Auditorium 1',
-        capacity: '200 Seats',
-        category: 'Guest Lecture',
-        isUpcoming: true,
-        description: `Get real-world advice on breaking into Data Science roles, acing technical interviews, portfolio building, and trends in Generative AI from industry veterans.`,
-        speaker: 'Panel of Senior Data Engineers & ML Scientists',
-        level: 'Open for All',
-    },
-];
-
-const PAST_EVENTS = [
-    {
-        id: 'past-1',
-        title: 'Intro to Pandas & Data Science Starter Pack',
-        date: 'September 12, 2026',
-        category: 'Workshop',
-        isUpcoming: false,
-        imagePlaceholder: 'Image Placeholder / Workshop Banner',
-        description:
-            'A kickstarter session for beginners introducing the fundamentals of Python for scientific computing, tabular data manipulation, and exploratory workflows.',
-        stats: '140+ Attendees • 98% Positive Feedback',
-        venue: 'Lab 201',
-    },
-    {
-        id: 'past-2',
-        title: 'NLP & Large Language Models Hands-On Lab',
-        date: 'August 24, 2026',
-        category: 'Technical Session',
-        isUpcoming: false,
-        imagePlaceholder: 'Image Placeholder / LLM Lab Session',
-        description:
-            'Demystified transformer architectures, tokenization, HuggingFace pipeline integrations, and prompt engineering strategies with live coding notebooks.',
-        stats: '110+ Attendees • 4 Live Demos',
-        venue: 'Seminar Hall B',
-    },
-    {
-        id: 'past-3',
-        title: 'DataViz Challenge: Storytelling with PowerBI & Tableau',
-        date: 'July 18, 2026',
-        category: 'Competition',
-        isUpcoming: false,
-        imagePlaceholder: 'Image Placeholder / Dashboard Exhibition',
-        description:
-            'Students presented interactive business intelligence dashboards analyzing urban mobility and sustainable energy datasets in front of a jury panel.',
-        stats: '45 Teams • ₹20k Prize Distributed',
-        venue: 'Virtual Showcase',
-    },
-    {
-        id: 'past-4',
-        title: 'Alumni AMA: Cracking FAANG & Data Internships',
-        date: 'June 05, 2026',
-        category: 'Webinar',
-        isUpcoming: false,
-        imagePlaceholder: 'Image Placeholder / Alumni Panel',
-        description:
-            'Interactive fireside chat featuring DSSA alumni sharing their interview experiences, resume building tips, and open-source contribution practices.',
-        stats: '220+ Live Viewers • 5 Alumni Speakers',
-        venue: 'Zoom & YouTube Live',
-    },
-];
+const UPCOMING_EVENTS = [];
+const PAST_EVENTS = [];
 
 export default function EventsPage() {
     // Navigation / Modal states

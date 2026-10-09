@@ -5,15 +5,13 @@ export default function Navbar() {
     { name: "About", href: "/about" },
     { name: "Team", href: "/team" },
     { name: "Events", href: "/events" },
-    { name: "Projects", href: "/projects" },
     { name: "Achievements", href: "/achievements" },
-    { name: "Learning", href: "/learning" },
     { name: "Opportunities", href: "/opportunities" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-zinc-900 bg-black/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Club Brand */}
         <Link href="/" className="flex items-center gap-2">
