@@ -1,1 +1,111 @@
-[]
+[
+  {
+    "id": "event-01",
+    "title": "DataStorm 2026: National Hackathon",
+    "category": "Hackathon",
+    "date": "2026-11-14",
+    "time": "09:00 AM - 09:00 PM IST (36 Hours)",
+    "location": "Auditorium & Computing Labs, VIT Pune Campus",
+    "mode": "Hybrid",
+    "description": "The flagship national 36-hour data science and AI hackathon bringing together over 500+ student innovators to build production-ready ML systems, agentic workflows, and predictive analytics tools.",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+    "registrationLink": "https://unstop.com",
+    "status": "Upcoming",
+    "featured": true,
+    "tags": ["AI/ML", "Hackathon", "Predictive Analytics", "Deep Learning"],
+    "speakers": [
+      {
+        "name": "Dr. Aniruddh Joshi",
+        "role": "Head of AI Research, DeepScale Labs"
+      },
+      {
+        "name": "Priya Deshmukh",
+        "role": "Principal Data Scientist, QuantIQ"
+      }
+    ]
+  },
+  {
+    "id": "event-02",
+    "title": "Mastering LLMs & RAG Architectures",
+    "category": "Workshop",
+    "date": "2026-10-25",
+    "time": "02:00 PM - 05:30 PM IST",
+    "location": "Seminar Hall 2, Data Science Dept, VIT Pune",
+    "mode": "In-Person",
+    "description": "A hands-on, code-first masterclass exploring Retrieval-Augmented Generation (RAG), vector embeddings with Milvus/Pinecone, and building autonomous agentic tool loops using modern open-weights models.",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+    "registrationLink": "https://forms.gle/dssa-rag-workshop",
+    "status": "Open",
+    "featured": true,
+    "tags": ["Generative AI", "LLMs", "RAG", "LangChain", "Vector DB"],
+    "speakers": [
+      {
+        "name": "Rohan Kulkarni",
+        "role": "DSSA Technical Lead & AI Researcher"
+      }
+    ]
+  },
+  {
+    "id": "event-03",
+    "title": "Computer Vision & Edge AI Bootcamp",
+    "category": "Bootcamp",
+    "date": "2026-10-02",
+    "time": "10:00 AM - 04:00 PM IST",
+    "location": "Virtual via Google Meet & Discord Live",
+    "mode": "Online",
+    "description": "A comprehensive one-day deep dive into real-time object detection with YOLOv11, TensorRT quantization, and deploying optimized models on low-power edge hardware like Raspberry Pi and Jetson Nano.",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80",
+    "registrationLink": "https://forms.gle/dssa-edge-ai",
+    "status": "Completed",
+    "featured": false,
+    "tags": ["Computer Vision", "Edge AI", "PyTorch", "YOLOv11"],
+    "speakers": [
+      {
+        "name": "Siddharth Verma",
+        "role": "Embedded ML Engineer, TensorCorp"
+      }
+    ]
+  },
+  {
+    "id": "event-04",
+    "title": "Data Engineering at Scale: Kafka & Spark",
+    "category": "Tech Talk",
+    "date": "2026-09-18",
+    "time": "04:00 PM - 06:00 PM IST",
+    "location": "Room 402, IT Building, VIT Pune",
+    "mode": "In-Person",
+    "description": "Industry deep dive into building fault-tolerant distributed streaming pipelines, lakehouse architectures with Apache Iceberg, and processing millions of telemetry events in real-time.",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    "registrationLink": "https://forms.gle/dssa-data-eng",
+    "status": "Completed",
+    "featured": false,
+    "tags": ["Data Engineering", "Apache Spark", "Kafka", "Lakehouse"],
+    "speakers": [
+      {
+        "name": "Meera Nair",
+        "role": "Senior Data Platform Engineer, StreamLine"
+      }
+    ]
+  },
+  {
+    "id": "event-05",
+    "title": "Algorithmic Trading & Quantitative Finance",
+    "category": "Seminar",
+    "date": "2026-12-05",
+    "time": "11:00 AM - 02:00 PM IST",
+    "location": "Auditorium, VIT Pune",
+    "mode": "In-Person",
+    "description": "Explore stochastic calculus, backtesting trading strategies using Python, volatility modeling with GARCH, and machine learning architectures applied to high-frequency market microstructure.",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    "registrationLink": "https://forms.gle/dssa-quant-seminar",
+    "status": "Upcoming",
+    "featured": false,
+    "tags": ["Quant", "Time Series", "Finance", "Python", "Backtesting"],
+    "speakers": [
+      {
+        "name": "Arjun Mehta",
+        "role": "Quantitative Researcher, AlphaEdge Capital"
+      }
+    ]
+  }
+]
