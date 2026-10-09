@@ -1,3 +1,90 @@
+[
+  {
+    "id": "proj-01",
+    "title": "NeuroPulse: Edge Health Telemetry & Anomaly Detection",
+    "category": "Edge AI / Healthcare",
+    "summary": "Real-time edge computing system utilizing 1D-CNN and LSTM networks to detect cardiac arrhythmias and anomalous physiological patterns from wearable PPG sensor streams.",
+    "techStack": ["PyTorch", "FastAPI", "TensorRT", "Next.js", "Tailwind CSS", "MQTT", "Docker"],
+    "status": "Active",
+    "featured": true,
+    "github": "https://github.com/dssa-vit/neuropulse-edge",
+    "demo": "https://neuropulse.dssavit.org",
+    "metrics": {
+      "stars": 128,
+      "accuracy": "98.4%",
+      "latency": "< 12ms"
+    },
+    "leads": ["Rohan Kulkarni", "Tanvi Patel"]
+  },
+  {
+    "id": "proj-02",
+    "title": "Aether-RAG: Multimodal Campus Intelligence Engine",
+    "category": "Generative AI / Knowledge Systems",
+    "summary": "An enterprise-grade hybrid retrieval-augmented generation engine indexing 10,000+ academic papers, course syllabi, and administrative documents for VIT Pune students.",
+    "techStack": ["Python", "LangChain", "Milvus Vector DB", "Llama-3-70B", "FastAPI", "React"],
+    "status": "Active",
+    "featured": true,
+    "github": "https://github.com/dssa-vit/aether-rag-engine",
+    "demo": "https://aether.dssavit.org",
+    "metrics": {
+      "stars": 245,
+      "queriesServed": "50K+",
+      "indexingLatency": "1.2s"
+    },
+    "leads": ["Ananya Joshi", "Aarav Sharma"]
+  },
+  {
+    "id": "proj-03",
+    "title": "VisionFlow: Autonomous Traffic & Infrastructure Analytics",
+    "category": "Computer Vision",
+    "summary": "Scalable urban mobility surveillance framework with automated vehicle tracking, lane violation detection, and real-time congestion heatmapping using YOLOv11 and DeepSORT.",
+    "techStack": ["YOLOv11", "DeepSORT", "OpenCV", "Flask", "PostgreSQL", "Grafana"],
+    "status": "Completed",
+    "featured": false,
+    "github": "https://github.com/dssa-vit/visionflow-traffic",
+    "demo": "https://visionflow.dssavit.org",
+    "metrics": {
+      "stars": 94,
+      "fps": "45 FPS on RTX 4060",
+      "precision": "96.2% mAP"
+    },
+    "leads": ["Siddharth Verma", "Ishan Deshpande"]
+  },
+  {
+    "id": "proj-04",
+    "title": "AlphaStream: High-Throughput Financial Backtester",
+    "category": "Quant / Systems",
+    "summary": "Low-latency algorithmic backtesting engine written in Rust and Python with support for order-book simulation, risk parity attribution, and automated strategy optimization.",
+    "techStack": ["Rust", "Python", "Polars", "Ray", "TimescaleDB", "React"],
+    "status": "Active",
+    "featured": false,
+    "github": "https://github.com/dssa-vit/alphastream-quant",
+    "demo": "https://alphastream.dssavit.org",
+    "metrics": {
+      "stars": 182,
+      "throughput": "1.5M ticks/sec",
+      "sharpeRatio": "2.4 Benchmark"
+    },
+    "leads": ["Arjun Mehta", "Aarav Sharma"]
+  },
+  {
+    "id": "proj-05",
+    "title": "DataSphere: Open Academic Dataset Exchange",
+    "category": "Web / Open Data",
+    "summary": "Decentralized, version-controlled open data repository platform allowing student researchers to publish, cite, and benchmark local dataset splits with automated SHA-256 validation.",
+    "techStack": ["Next.js", "Node.js", "IPFS", "Prisma", "PostgreSQL", "Tailwind CSS"],
+    "status": "In Development",
+    "featured": false,
+    "github": "https://github.com/dssa-vit/datasphere-registry",
+    "demo": "https://datasphere.dssavit.org",
+    "metrics": {
+      "stars": 76,
+      "datasets": "120+ Hosted",
+      "downloads": "15K+"
+    },
+    "leads": ["Tanvi Patel", "Sanya Kapoor"]
+  }
+]
 {
   "featuredImages": [
     "https://images.unsplash.com/photo-1518770660439-4636190af475",

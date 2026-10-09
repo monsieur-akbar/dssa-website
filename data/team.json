@@ -1,3 +1,111 @@
+[
+  {
+    "id": "team-01",
+    "name": "Dr. S. R. Shinde",
+    "role": "Faculty Advisor & Mentor",
+    "domain": "Advisory Board",
+    "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    "bio": "Professor and Academic Coordinator at Department of Computer Engineering & Data Science, fostering student research in artificial intelligence and applied analytics.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "email": "faculty.advisor@vit.edu",
+      "github": "https://github.com"
+    }
+  },
+  {
+    "id": "team-02",
+    "name": "Aarav Sharma",
+    "role": "President & Lead Coordinator",
+    "domain": "Executive",
+    "photo": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80",
+    "bio": "Final year Data Science student passionate about distributed systems, MLOps orchestration, and community tech leadership.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/aarav-sharma",
+      "github": "https://github.com/aaravsharma",
+      "twitter": "https://x.com/aarav_ai",
+      "email": "aarav.sharma@dssavit.org"
+    }
+  },
+  {
+    "id": "team-03",
+    "name": "Ananya Joshi",
+    "role": "Vice President & Research Lead",
+    "domain": "Executive",
+    "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+    "bio": "Specializes in multimodal foundation models and biomedical NLP with multiple conference papers published in IEEE.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/ananya-joshi",
+      "github": "https://github.com/ananyajoshi",
+      "twitter": "https://x.com/ananya_ml",
+      "email": "ananya.joshi@dssavit.org"
+    }
+  },
+  {
+    "id": "team-04",
+    "name": "Rohan Kulkarni",
+    "role": "Technical Lead (AI / ML)",
+    "domain": "Technical",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    "bio": "Building scalable inference engines, agentic LLM pipelines, and leading open-source contribution drives within DSSA.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/rohan-kulkarni",
+      "github": "https://github.com/rohankulkarni",
+      "email": "rohan.kulkarni@dssavit.org"
+    }
+  },
+  {
+    "id": "team-05",
+    "name": "Tanvi Patel",
+    "role": "Head of Full-Stack & Systems",
+    "domain": "Technical",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+    "bio": "Architecting modern web platforms, high-throughput backend microservices, and reactive data dashboards for club projects.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/tanvi-patel",
+      "github": "https://github.com/tanvipatel",
+      "email": "tanvi.patel@dssavit.org"
+    }
+  },
+  {
+    "id": "team-06",
+    "name": "Ishan Deshpande",
+    "role": "Head of Events & Operations",
+    "domain": "Operations",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+    "bio": "Managing large-scale hackathons, logistics, institutional partnerships, and inter-college tech symposiums.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/ishan-deshpande",
+      "github": "https://github.com/ishandeshpande",
+      "email": "ishan.d@dssavit.org"
+    }
+  },
+  {
+    "id": "team-07",
+    "name": "Sanya Kapoor",
+    "role": "Design & UI/UX Lead",
+    "domain": "Design & Media",
+    "photo": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+    "bio": "Crafting clean cybernetic visual identities, 3D interactive graphics, and intuitive human-computer interaction designs.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/sanya-kapoor",
+      "github": "https://github.com/sanyakapoor",
+      "email": "sanya.k@dssavit.org"
+    }
+  },
+  {
+    "id": "team-08",
+    "name": "Aditya Rao",
+    "role": "Head of PR & Industry Outreach",
+    "domain": "Outreach",
+    "photo": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80",
+    "bio": "Connecting DSSA students with tier-1 tech corporate sponsors, industry keynote speakers, and internship opportunities.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/aditya-rao",
+      "github": "https://github.com/adityarao",
+      "email": "aditya.rao@dssavit.org"
+    }
+  }
+]
 {
   "faculty": {
     "name": "Faculty Coordinator Name",
