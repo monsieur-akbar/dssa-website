@@ -1,111 +1,111 @@
 [
   {
     "id": "event-01",
-    "title": "DataStorm 2026: National Hackathon",
-    "category": "Hackathon",
-    "date": "2026-11-14",
-    "time": "09:00 AM - 09:00 PM IST (36 Hours)",
-    "location": "Auditorium & Computing Labs, VIT Pune Campus",
-    "mode": "Hybrid",
-    "description": "The flagship national 36-hour data science and AI hackathon bringing together over 500+ student innovators to build production-ready ML systems, agentic workflows, and predictive analytics tools.",
-    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://unstop.com",
+    "title": " Code Eazz",
+    "category": "Coding Contest",
+    "date": "14/10/2026, Wednesday",
+    "time": "12:00 PM IST Onwards",
+    "location": "D201-Kondhwa Campus",
+    "mode": "Offline",
+    "description": "Showcase your problem-solving skills in our Code Eazz coding contest! Put your logic and efficiency to the test as you race against the clock to solve challenging algorithmic problems. Whether you’re a beginner or an expert, this is your chance to shine, compete, and win exciting prizes. Join us for a fast-paced session of coding, creativity, and friendly competition—it's time to code your way to victory!",
+    "image": "/events/code-eazz.jpg",
+    "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLScd2K70Zs7K_yYauRr1BxI_aA-uWO1gYVdIZTXu_9vr1EDgHg/formResponse",
     "status": "Upcoming",
-    "featured": true,
-    "tags": ["AI/ML", "Hackathon", "Predictive Analytics", "Deep Learning"],
-    "speakers": [
+    "featured": false,
+    "tags": [
+      "Data Structures",
+      "Algorithms",
+      "Coding Contest"
+    ],
+    "speakers": [],
+    "prizes": [
       {
-        "name": "Dr. Aniruddh Joshi",
-        "role": "Head of AI Research, DeepScale Labs"
-      },
-      {
-        "name": "Priya Deshmukh",
-        "role": "Principal Data Scientist, QuantIQ"
+        "position": "Winner",
+        "reward": "Internship Opportunity at Ultron",
+        "details": "Winner's trophy + goodies"
       }
+    ],
+    "guidelines": [
+      "It is mandatory for all the participants to bring their own laptops and chargers.",
+      "Ensure your laptop has a minimum of 2 hours of battery life and bring fully charged laptops.",
+      "Participants must be present at the venue at least 15 minutes before the scheduled start time.",
+      "Use of LLMs(Gemini, ChatGPT, Claude etc.) is strictly prohibited.",
+      "No plagiarism — all solutions must be original.",
+      "Decisions of the judges will be final and binding."
+    ],
+    "eligibility": [
+      "Participants must be students of VIT Pune.",
+      "Coding competition is open to Second-Year students belonging to Data Science Department only."
     ]
   },
   {
     "id": "event-02",
-    "title": "Mastering LLMs & RAG Architectures",
-    "category": "Workshop",
-    "date": "2026-10-25",
-    "time": "02:00 PM - 05:30 PM IST",
-    "location": "Seminar Hall 2, Data Science Dept, VIT Pune",
-    "mode": "In-Person",
-    "description": "A hands-on, code-first masterclass exploring Retrieval-Augmented Generation (RAG), vector embeddings with Milvus/Pinecone, and building autonomous agentic tool loops using modern open-weights models.",
-    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-rag-workshop",
-    "status": "Open",
-    "featured": true,
-    "tags": ["Generative AI", "LLMs", "RAG", "LangChain", "Vector DB"],
+    "title": " Model Building and Evaluation",
+    "category": "Seminar",
+    "date": "08/10/2026, Thursday",
+    "mode": "Online",
+    "description": "Our Model Building and Evaluation session offered students fundamental insights into machine learning, model development, and assessment.",
+    "image": "/events/model_evaluation_session_banner.png",
+    "status": "Completed",
+    "featured": false,
     "speakers": [
-      {
-        "name": "Rohan Kulkarni",
-        "role": "DSSA Technical Lead & AI Researcher"
-      }
+      "Abhijeet Dada Mote"
     ]
   },
   {
     "id": "event-03",
-    "title": "Computer Vision & Edge AI Bootcamp",
-    "category": "Bootcamp",
-    "date": "2026-10-02",
-    "time": "10:00 AM - 04:00 PM IST",
-    "location": "Virtual via Google Meet & Discord Live",
+    "title": "API creation Using Springboot",
+    "category": "Seminar",
+    "date": "06/10/2026, Thursday",
     "mode": "Online",
-    "description": "A comprehensive one-day deep dive into real-time object detection with YOLOv11, TensorRT quantization, and deploying optimized models on low-power edge hardware like Raspberry Pi and Jetson Nano.",
-    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-edge-ai",
+    "description": "Participants dived into backend development during our hands-on workshop on creating RESTful APIs using Spring Boot. Attendees learned to design, build, and deploy APIs with one of Java’s most popular frameworks, sharpening their programming skills and mastering core backend development principles.",
+    "image": "/events/springboot_seminar_banner.png",
     "status": "Completed",
     "featured": false,
-    "tags": ["Computer Vision", "Edge AI", "PyTorch", "YOLOv11"],
     "speakers": [
-      {
-        "name": "Siddharth Verma",
-        "role": "Embedded ML Engineer, TensorCorp"
-      }
+      "Anuja Jadhav"
     ]
   },
   {
     "id": "event-04",
-    "title": "Data Engineering at Scale: Kafka & Spark",
-    "category": "Tech Talk",
-    "date": "2026-09-18",
-    "time": "04:00 PM - 06:00 PM IST",
-    "location": "Room 402, IT Building, VIT Pune",
-    "mode": "In-Person",
-    "description": "Industry deep dive into building fault-tolerant distributed streaming pipelines, lakehouse architectures with Apache Iceberg, and processing millions of telemetry events in real-time.",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-data-eng",
+    "title": "GD & PI Preparation Session",
+    "category": "Seminar",
+    "date": "30/09/2026",
+    "mode": "Online",
+    "description": "Tailored for upcoming internships and final placements, this session equipped participants with key skills, confidence, and strategies to ace Group Discussions and Personal Interviews. Attendees mastered techniques for articulation, persuasion, and professional presentation to stand out and maximize every opportunity",
+    "image": "/events/GD&PI_seminar_banner.png",
     "status": "Completed",
     "featured": false,
-    "tags": ["Data Engineering", "Apache Spark", "Kafka", "Lakehouse"],
     "speakers": [
-      {
-        "name": "Meera Nair",
-        "role": "Senior Data Platform Engineer, StreamLine"
-      }
+      "Abhijeet Dada Mote"
     ]
   },
   {
     "id": "event-05",
-    "title": "Algorithmic Trading & Quantitative Finance",
+    "title": "From Campus to Tech Career",
     "category": "Seminar",
-    "date": "2026-12-05",
-    "time": "11:00 AM - 02:00 PM IST",
-    "location": "Auditorium, VIT Pune",
-    "mode": "In-Person",
-    "description": "Explore stochastic calculus, backtesting trading strategies using Python, volatility modeling with GARCH, and machine learning architectures applied to high-frequency market microstructure.",
-    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-quant-seminar",
-    "status": "Upcoming",
+    "date": "28/09/2026, Monday",
+    "mode": "Online",
+    "description": "Our exclusive seminar, 'From Campus to Tech Career', bridged the gap between academic life and the dynamic technology industry. Attendees decoded career roadmaps, learned insider tips for landing dream roles, and gained actionable strategies, clarity, and momentum to confidently launch their futures in tech.",
+    "image": "/events/TechToCampus_seminar_banner.png",
+    "status": "Completed",
     "featured": false,
-    "tags": ["Quant", "Time Series", "Finance", "Python", "Backtesting"],
     "speakers": [
-      {
-        "name": "Arjun Mehta",
-        "role": "Quantitative Researcher, AlphaEdge Capital"
-      }
+      "Abhijeet Dada Mote"
+    ]
+  },
+  {
+    "id": "event-06",
+    "title": "Kaggle Prep: From Dataset to Data Analysis",
+    "category": "Seminar",
+    "date": "19/09/2026",
+    "mode": "Online",
+    "description": "Our comprehensive Kaggle Preparation session equipped participants with essential skills, strategies, and insider tips to excel in data science competitions. Attendees explored everything from navigating datasets and building robust models to optimizing submissions and climbing leaderboards, gaining a competitive edge to elevate their data science journey",
+    "image": "/events/KagglePrep_banner.png",
+    "status": "Completed",
+    "featured": false,
+    "speakers": [
+      "Abhijeet Dada Mote"
     ]
   }
 ]
