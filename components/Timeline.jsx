@@ -1,6 +1,6 @@
 export default function Timeline({ items }) {
   return (
-    <ol className="relative ml-2 border-l border-slate-800 sm:ml-0">
+    <ol className="relative ml-2 border-l border-[#262626] sm:ml-0">
       {items.map((item) => (
         <li
           key={item.year}
@@ -8,12 +8,12 @@ export default function Timeline({ items }) {
         >
           <span
             aria-hidden="true"
-            className="absolute -left-1 top-1.5 h-2.5 w-2.5 rounded-full bg-blue-500 ring-4 ring-slate-950"
+            className="absolute -left-1 top-1.5 h-2.5 w-2.5 rounded-full bg-[#FFFFFF] ring-4 ring-[#000000]"
           />
-          <p className="text-lg font-bold text-blue-400 md:text-right">{item.year}</p>
-          <div className="mt-1 rounded-xl border border-slate-800/80 bg-slate-900/40 p-5 md:mt-0">
-            <h3 className="font-semibold text-white">{item.title}</h3>
-            <p className="mt-1 text-sm leading-relaxed text-slate-400">
+          <p className="text-base font-bold font-mono text-[#00A3FF] md:text-right">{item.year}</p>
+          <div className="mt-1 rounded-xl border border-[#262626] bg-[#0D0D0D] p-5 hover:border-[#404040] transition-colors md:mt-0">
+            <h3 className="font-semibold text-[#FFFFFF]">{item.title}</h3>
+            <p className="mt-1 text-sm leading-relaxed text-[#A3A3A3]">
               {item.description}
             </p>
           </div>

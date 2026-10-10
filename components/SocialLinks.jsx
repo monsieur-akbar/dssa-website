@@ -1,7 +1,7 @@
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 
 const linkClass =
-  "inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-800 bg-slate-900 text-slate-400 transition-colors hover:border-slate-600 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400";
+  "inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#262626] bg-[#0D0D0D] text-[#A3A3A3] transition-colors hover:border-[#262626] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400";
 
 export default function SocialLinks({ name, linkedin, github, className = "" }) {
   if (!linkedin && !github) return null;

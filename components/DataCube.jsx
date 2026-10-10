@@ -266,7 +266,7 @@ export default function DataCube() {
       ctx.fillText(subtitle, 256, 305);
 
       // Bottom Tech Sub-label
-      ctx.fillStyle = "#94a3b8";
+      ctx.fillStyle = "#A3A3A3";
       ctx.font = "600 12px monospace";
       ctx.textAlign = "center";
       ctx.fillText("/// DSSA DOMAIN CORE", 256, 436);
@@ -538,9 +538,9 @@ export default function DataCube() {
         key={domain.id}
         onMouseEnter={() => handleDomainSelect(originalIdx)}
         onClick={() => handleDomainSelect(originalIdx)}
-        className={`px-4 py-3 rounded-xl border backdrop-blur-md transition-all duration-300 cursor-pointer flex flex-col gap-1.5 shadow-2xl ${
+        className={`px-4 py-3 rounded-xl border backdrop-blur-md transition-all duration-300 cursor-pointer flex flex-col gap-1.5 shadow-xl ${
           isActive
-            ? "bg-zinc-950/95 border-white text-white shadow-[0_0_25px_rgba(255,255,255,0.2)] scale-[1.03]"
+            ? "bg-zinc-950/95 border-white text-white scale-[1.03]"
             : "bg-zinc-950/80 hover:bg-zinc-900/90 border-zinc-800 hover:border-zinc-500 text-zinc-200"
         }`}
       >
@@ -548,7 +548,7 @@ export default function DataCube() {
           <div className="flex items-center gap-2">
             <span
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                isActive ? "bg-white shadow-[0_0_8px_#ffffff]" : "bg-zinc-500"
+                isActive ? "bg-white" : "bg-zinc-500"
               }`}
             />
             <span className="text-sm font-bold tracking-tight text-white">
@@ -651,7 +651,7 @@ export default function DataCube() {
         <div className="w-full max-w-md p-4 sm:p-5 rounded-xl bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl shadow-2xl flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_#fff]" />
+              <span className="w-2 h-2 rounded-full bg-white" />
               <span className="text-sm font-bold text-white tracking-tight">{activeDomain.title}</span>
             </div>
             <span className="text-[10px] font-mono text-zinc-400 uppercase font-semibold tracking-wider">

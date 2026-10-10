@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-  Sparkles,
   CheckCircle2,
   AlertCircle,
   ArrowRight,
@@ -116,18 +115,18 @@ export default function JoinPage() {
   // Icon mapping for tracks
   const getTrackIcon = (trackName) => {
     if (trackName.includes("AI") || trackName.includes("Machine")) {
-      return <Brain className="w-5 h-5 text-blue-400" />;
+      return <Brain className="w-5 h-5 text-[#00A3FF]" />;
     }
     if (trackName.includes("Stack") || trackName.includes("Developer") || trackName.includes("Systems")) {
-      return <Code2 className="w-5 h-5 text-emerald-400" />;
+      return <Code2 className="w-5 h-5 text-[#FFFFFF]" />;
     }
     if (trackName.includes("Design") || trackName.includes("Creative") || trackName.includes("Media")) {
-      return <Palette className="w-5 h-5 text-purple-400" />;
+      return <Palette className="w-5 h-5 text-[#FFFFFF]" />;
     }
     if (trackName.includes("Operations") || trackName.includes("Management")) {
-      return <Briefcase className="w-5 h-5 text-amber-400" />;
+      return <Briefcase className="w-5 h-5 text-[#FFFFFF]" />;
     }
-    return <Megaphone className="w-5 h-5 text-pink-400" />;
+    return <Megaphone className="w-5 h-5 text-[#A3A3A3]" />;
   };
 
   // Filtered Opportunities
@@ -254,38 +253,34 @@ export default function JoinPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-slate-950 text-slate-100 selection:bg-blue-600 selection:text-white pb-24">
+    <div className="w-full min-h-screen bg-[#000000] text-[#FFFFFF] pb-24">
       {/* ─────────────────────────────────────────────────────────────
           SECTION 1: HERO & RECRUITMENT STATUS
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative w-full pt-16 pb-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 bg-gradient-to-b from-slate-900/50 via-slate-950 to-slate-950 overflow-hidden">
-        {/* Glow ambient background elements */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-blue-600/10 blur-[120px] pointer-events-none rounded-full" />
-        <div className="absolute top-1/3 right-10 w-60 h-60 bg-purple-600/10 blur-[100px] pointer-events-none rounded-full" />
-
+      <section className="relative w-full pt-16 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[#262626] bg-[#000000] overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10 text-center">
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-6">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#000000] border border-[#262626] text-[#00A3FF] text-xs font-mono mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#FFFFFF]" />
             <span>ANNUAL RECRUITMENT DRIVE 2026-27 • APPLICATIONS OPEN</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#FFFFFF] tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
             Build the Future of <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+            <span className="text-[#FFFFFF]">
               Artificial Intelligence
             </span>{" "}
             at VIT Pune
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="text-sm sm:text-base text-[#A3A3A3] max-w-2xl mx-auto leading-relaxed mb-8">
             Join the premier data science organization on campus. Work on industry-grade machine learning pipelines, published research papers, high-traffic web platforms, and national hackathons.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#recruitment-form"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-lg shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFFFFF] hover:bg-[#E5E5E5] text-[#000000] font-semibold text-sm rounded-lg transition-colors border border-[#262626]"
             >
               <span>Apply for Core Team</span>
               <ArrowRight className="w-4 h-4" />
@@ -293,30 +288,30 @@ export default function JoinPage() {
 
             <a
               href="#recruitment-tracks"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold text-sm rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0D0D0D] hover:bg-[#1A1A1A] text-[#A3A3A3] hover:text-[#FFFFFF] border border-[#404040] font-semibold text-sm rounded-lg transition-colors"
             >
               <span>Explore Open Tracks</span>
-              <Layers className="w-4 h-4 text-slate-400" />
+              <Layers className="w-4 h-4 text-[#A3A3A3]" />
             </a>
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto pt-8 border-t border-slate-800/60">
-            <div className="p-4 rounded-lg bg-slate-900/40 border border-slate-800/60 text-center">
-              <div className="text-2xl font-black text-white font-mono">5+</div>
-              <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Specialized Tracks</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto pt-8 border-t border-[#262626]">
+            <div className="p-4 rounded-xl bg-[#0D0D0D] border border-[#262626] text-center">
+              <div className="text-2xl font-black text-[#FFFFFF] font-mono">5+</div>
+              <div className="text-xs text-[#A3A3A3] font-mono uppercase tracking-wider mt-1">Specialized Tracks</div>
             </div>
-            <div className="p-4 rounded-lg bg-slate-900/40 border border-slate-800/60 text-center">
-              <div className="text-2xl font-black text-blue-400 font-mono">22+</div>
-              <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Open Positions</div>
+            <div className="p-4 rounded-xl bg-[#0D0D0D] border border-[#262626] text-center">
+              <div className="text-2xl font-black text-[#00A3FF] font-mono">22+</div>
+              <div className="text-xs text-[#A3A3A3] font-mono uppercase tracking-wider mt-1">Open Positions</div>
             </div>
-            <div className="p-4 rounded-lg bg-slate-900/40 border border-slate-800/60 text-center">
-              <div className="text-2xl font-black text-emerald-400 font-mono">100%</div>
-              <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Hands-on R&D</div>
+            <div className="p-4 rounded-xl bg-[#0D0D0D] border border-[#262626] text-center">
+              <div className="text-2xl font-black text-[#FFFFFF] font-mono">100%</div>
+              <div className="text-xs text-[#A3A3A3] font-mono uppercase tracking-wider mt-1">Hands-on R&D</div>
             </div>
-            <div className="p-4 rounded-lg bg-slate-900/40 border border-slate-800/60 text-center">
-              <div className="text-2xl font-black text-purple-400 font-mono">Nov 05</div>
-              <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Application Deadline</div>
+            <div className="p-4 rounded-xl bg-[#0D0D0D] border border-[#262626] text-center">
+              <div className="text-2xl font-black text-[#FFFFFF] font-mono">Nov 05</div>
+              <div className="text-xs text-[#A3A3A3] font-mono uppercase tracking-wider mt-1">Application Deadline</div>
             </div>
           </div>
         </div>
@@ -325,16 +320,16 @@ export default function JoinPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 2: RECRUITMENT TIMELINE & PROCESS
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-slate-800/80">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-[#262626]">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono uppercase tracking-wider mb-3">
-            <Calendar className="w-3.5 h-3.5 text-blue-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#0D0D0D] border border-[#262626] text-[#A3A3A3] text-xs font-mono uppercase tracking-wider mb-3">
+            <Calendar className="w-3.5 h-3.5 text-[#00A3FF]" />
             <span>Process Roadmap</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
             How the Selection Process Works
           </h2>
-          <p className="text-sm text-slate-400 mt-2">
+          <p className="text-sm text-[#A3A3A3] mt-2">
             A transparent, merit-driven evaluation structured to assess your technical aptitude, passion, and problem-solving creativity.
           </p>
         </div>
@@ -345,21 +340,21 @@ export default function JoinPage() {
               key={item.step}
               className={`relative flex flex-col justify-between p-6 rounded-xl border transition-all duration-300 ${
                 item.highlight
-                  ? "bg-slate-900/90 border-blue-500/50 shadow-lg shadow-blue-500/5"
-                  : "bg-slate-900/40 border-slate-800 hover:border-slate-700"
+                  ? "bg-[#0D0D0D] border-[#262626] shadow-lg "
+                  : "bg-[#0D0D0D] border-[#262626] hover:border-[#262626]"
               }`}
             >
               <div>
                 {/* Step indicator header */}
-                <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
-                  <span className="text-xs font-mono font-bold text-blue-400 tracking-wider">
+                <div className="flex items-center justify-between pb-3 border-b border-[#262626] mb-4">
+                  <span className="text-xs font-mono font-bold text-[#00A3FF] tracking-wider">
                     PHASE {item.step}
                   </span>
                   <span
                     className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-semibold ${
                       item.status === "Active Now"
-                        ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 animate-pulse"
-                        : "bg-slate-800 text-slate-400"
+                        ? "bg-[#0D0D0D] text-[#00A3FF] border border-[#262626]"
+                        : "bg-[#0D0D0D] text-[#A3A3A3]"
                     }`}
                   >
                     {item.status}
@@ -367,19 +362,19 @@ export default function JoinPage() {
                 </div>
 
                 <h3 className="text-lg font-bold text-white mb-1.5">{item.phase}</h3>
-                <div className="text-xs font-mono text-slate-400 mb-3 flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                <div className="text-xs font-mono text-[#A3A3A3] mb-3 flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-[#A3A3A3]" />
                   <span>{item.date}</span>
                 </div>
 
-                <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                <p className="text-xs text-[#A3A3A3] leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400">
+              <div className="mt-6 pt-3 border-t border-[#262626] flex items-center justify-between text-[11px] text-[#A3A3A3]">
                 <span className="font-mono">Stage {idx + 1} of 4</span>
-                {idx < 3 ? <ChevronRight className="w-3.5 h-3.5 text-slate-600" /> : <Award className="w-3.5 h-3.5 text-blue-400" />}
+                {idx < 3 ? <ChevronRight className="w-3.5 h-3.5 text-[#A3A3A3]" /> : <Award className="w-3.5 h-3.5 text-[#00A3FF]" />}
               </div>
             </div>
           ))}
@@ -389,17 +384,17 @@ export default function JoinPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 3: RECRUITMENT TRACKS & OPEN ROLES
           ───────────────────────────────────────────────────────────── */}
-      <section id="recruitment-tracks" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-slate-800/80">
+      <section id="recruitment-tracks" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-[#262626]">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono uppercase tracking-wider mb-2">
-              <Layers className="w-3.5 h-3.5 text-indigo-400" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#0D0D0D] border border-[#262626] text-[#A3A3A3] text-xs font-mono uppercase tracking-wider mb-2">
+              <Layers className="w-3.5 h-3.5 text-[#00A3FF]" />
               <span>Available Domains</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
               Recruitment Tracks & Responsibilities
             </h2>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#A3A3A3] mt-1">
               Select a domain matching your strengths. You can also specify a secondary preference in your application.
             </p>
           </div>
@@ -413,8 +408,8 @@ export default function JoinPage() {
                 onClick={() => setSelectedTrackFilter(filter)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   selectedTrackFilter === filter
-                    ? "bg-blue-600 text-white shadow-sm"
-                    : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                    ? "bg-[#0D0D0D] text-white shadow-sm"
+                    : "bg-[#0D0D0D] text-[#A3A3A3] hover:text-white border border-[#262626]"
                 }`}
               >
                 {filter}
@@ -428,47 +423,47 @@ export default function JoinPage() {
           {filteredOpportunities.map((opp) => (
             <div
               key={opp.id}
-              className="p-6 sm:p-7 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-xl bg-[#0D0D0D] border border-[#262626] hover:border-[#262626] transition-all flex flex-col justify-between"
             >
               <div>
                 {/* Track Header */}
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                    <div className="p-2.5 rounded-lg bg-[#0D0D0D] border border-[#262626]">
                       {getTrackIcon(opp.track)}
                     </div>
                     <div>
-                      <div className="text-xs font-mono uppercase text-blue-400 tracking-wider font-semibold">
+                      <div className="text-xs font-mono uppercase text-[#00A3FF] tracking-wider font-semibold">
                         {opp.track}
                       </div>
                       <h3 className="text-xl font-bold text-white">{opp.role}</h3>
                     </div>
                   </div>
 
-                  <span className="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap">
+                  <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#0D0D0D] text-[#A3A3A3] border border-[#262626] whitespace-nowrap">
                     {opp.openings} Openings
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                <p className="text-xs sm:text-sm text-[#A3A3A3] leading-relaxed mb-5">
                   {opp.description}
                 </p>
 
                 {/* Eligibility Tag */}
-                <div className="mb-5 p-2.5 rounded bg-slate-950/70 border border-slate-800/80 text-xs font-mono text-slate-300 flex items-center gap-2">
-                  <span className="text-slate-500 font-bold uppercase">Eligibility:</span>
+                <div className="mb-5 p-2.5 rounded bg-[#0D0D0D] border border-[#262626] text-xs font-mono text-[#A3A3A3] flex items-center gap-2">
+                  <span className="text-[#A3A3A3] font-bold uppercase">Eligibility:</span>
                   <span>{opp.eligibility}</span>
                 </div>
 
                 {/* Requirements Checklist */}
                 <div className="mb-5">
-                  <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 font-semibold">
+                  <div className="text-xs font-mono text-[#A3A3A3] uppercase tracking-wider mb-2 font-semibold">
                     Core Prerequisites:
                   </div>
                   <ul className="space-y-1.5">
                     {opp.requirements.map((req, i) => (
-                      <li key={i} className="text-xs text-slate-300 flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <li key={i} className="text-xs text-[#A3A3A3] flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00A3FF] shrink-0 mt-0.5" />
                         <span>{req}</span>
                       </li>
                     ))}
@@ -477,14 +472,14 @@ export default function JoinPage() {
 
                 {/* Perks Pills */}
                 <div>
-                  <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 font-semibold">
+                  <div className="text-xs font-mono text-[#A3A3A3] uppercase tracking-wider mb-2 font-semibold">
                     Key Perks & Growth:
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {opp.perks.map((perk, i) => (
                       <span
                         key={i}
-                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-950 text-indigo-300 border border-slate-800"
+                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#0D0D0D] text-[#00A3FF] border border-[#262626]"
                       >
                         {perk}
                       </span>
@@ -494,12 +489,12 @@ export default function JoinPage() {
               </div>
 
               {/* Action Button */}
-              <div className="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
-                <span className="text-xs text-slate-400 font-mono">Type: {opp.type}</span>
+              <div className="pt-6 mt-6 border-t border-[#262626] flex items-center justify-between">
+                <span className="text-xs text-[#A3A3A3] font-mono">Type: {opp.type}</span>
                 <button
                   type="button"
                   onClick={() => scrollToApply(opp.track)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-blue-600/90 hover:bg-blue-600 text-white text-xs font-semibold rounded-lg transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0D0D0D] hover:bg-[#0D0D0D] text-white text-xs font-semibold rounded-lg transition-colors"
                 >
                   <span>Apply for this Role</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -514,60 +509,60 @@ export default function JoinPage() {
           SECTION 4: INTERACTIVE APPLICATION FORM
           ───────────────────────────────────────────────────────────── */}
       <section id="recruitment-form" className="pt-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div className="p-6 sm:p-10 rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl relative">
+        <div className="p-6 sm:p-10 rounded-2xl bg-[#0D0D0D] border border-[#262626] shadow-2xl relative">
 
           {/* Section Header */}
-          <div className="mb-8 pb-6 border-b border-slate-800">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono uppercase tracking-wider mb-2">
+          <div className="mb-8 pb-6 border-b border-[#262626]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0D0D0D] border border-[#262626] text-[#00A3FF] text-xs font-mono uppercase tracking-wider mb-2">
               <FileText className="w-3.5 h-3.5" />
               <span>Official Candidate Application</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
               Submit Your Candidacy
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-[#A3A3A3] mt-1">
               Please fill out all required details accurately. Selected applicants will receive an email invite for the domain assessment round.
             </p>
           </div>
 
           {/* Success Feedback Banner */}
           {submittedData ? (
-            <div className="p-8 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-100 flex flex-col items-center text-center animate-in fade-in duration-500">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+            <div className="p-8 rounded-xl bg-[#0D0D0D] border border-[#262626] text-[#00A3FF] flex flex-col items-center text-center animate-in fade-in duration-500">
+              <div className="w-16 h-16 rounded-full bg-[#0D0D0D] border border-[#262626] flex items-center justify-center mb-4">
+                <CheckCircle2 className="w-8 h-8 text-[#00A3FF]" />
               </div>
 
               <h3 className="text-2xl font-bold text-white mb-2">
                 Application Successfully Submitted!
               </h3>
-              <p className="text-xs sm:text-sm text-emerald-300 max-w-md mb-6 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#00A3FF] max-w-md mb-6 leading-relaxed">
                 Thank you, <strong className="text-white">{submittedData.fullName}</strong>. Your application for{" "}
                 <strong className="text-white">{submittedData.primaryDomain}</strong> has been logged in our recruitment registry.
               </p>
 
               {/* Receipt Summary Card */}
-              <div className="w-full max-w-lg p-5 rounded-lg bg-slate-950 border border-slate-800 text-left font-mono text-xs space-y-2 mb-6">
-                <div className="flex justify-between border-b border-slate-800/80 pb-2">
-                  <span className="text-slate-400">Application Reference ID:</span>
-                  <span className="text-blue-400 font-bold">{submittedData.applicationId}</span>
+              <div className="w-full max-w-lg p-5 rounded-lg bg-[#0D0D0D] border border-[#262626] text-left font-mono text-xs space-y-2 mb-6">
+                <div className="flex justify-between border-b border-[#262626] pb-2">
+                  <span className="text-[#A3A3A3]">Application Reference ID:</span>
+                  <span className="text-[#00A3FF] font-bold">{submittedData.applicationId}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Applicant:</span>
-                  <span className="text-slate-200">{submittedData.fullName}</span>
+                  <span className="text-[#A3A3A3]">Applicant:</span>
+                  <span className="text-[#A3A3A3]">{submittedData.fullName}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Registered Email:</span>
-                  <span className="text-slate-200">{submittedData.email}</span>
+                  <span className="text-[#A3A3A3]">Registered Email:</span>
+                  <span className="text-[#A3A3A3]">{submittedData.email}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Department / Year:</span>
-                  <span className="text-slate-200">{submittedData.department} ({submittedData.year})</span>
+                  <span className="text-[#A3A3A3]">Department / Year:</span>
+                  <span className="text-[#A3A3A3]">{submittedData.department} ({submittedData.year})</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Primary Track:</span>
-                  <span className="text-emerald-400 font-semibold">{submittedData.primaryDomain}</span>
+                  <span className="text-[#A3A3A3]">Primary Track:</span>
+                  <span className="text-[#00A3FF] font-semibold">{submittedData.primaryDomain}</span>
                 </div>
-                <div className="flex justify-between pt-2 border-t border-slate-800/80 text-[11px] text-slate-500">
+                <div className="flex justify-between pt-2 border-t border-[#262626] text-[11px] text-[#A3A3A3]">
                   <span>Timestamp:</span>
                   <span>{submittedData.submittedAt}</span>
                 </div>
@@ -576,7 +571,7 @@ export default function JoinPage() {
               <button
                 type="button"
                 onClick={() => setSubmittedData(null)}
-                className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-lg transition"
+                className="px-6 py-2.5 bg-[#0D0D0D] hover:bg-[#0D0D0D] text-white text-xs font-semibold rounded-lg transition"
               >
                 Submit Another Application
               </button>
@@ -587,8 +582,8 @@ export default function JoinPage() {
               {/* Row 1: Full Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="fullName" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    Full Name <span className="text-rose-400">*</span>
+                  <label htmlFor="fullName" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    Full Name <span className="text-[#00A3FF]">*</span>
                   </label>
                   <input
                     id="fullName"
@@ -599,14 +594,14 @@ export default function JoinPage() {
                     onChange={handleInputChange}
                     onFocus={() => setFocusedField("fullName")}
                     onBlur={() => setFocusedField(null)}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.fullName
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   />
                   {formErrors.fullName && (
-                    <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1.5 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.fullName}</span>
                     </p>
@@ -614,8 +609,8 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    College / Personal Email <span className="text-rose-400">*</span>
+                  <label htmlFor="email" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    College / Personal Email <span className="text-[#00A3FF]">*</span>
                   </label>
                   <input
                     id="email"
@@ -626,14 +621,14 @@ export default function JoinPage() {
                     onChange={handleInputChange}
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.email
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   />
                   {formErrors.email && (
-                    <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1.5 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.email}</span>
                     </p>
@@ -644,8 +639,8 @@ export default function JoinPage() {
               {/* Row 2: PRN & Phone Number */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="prn" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    PRN / Roll Number <span className="text-rose-400">*</span>
+                  <label htmlFor="prn" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    PRN / Roll Number <span className="text-[#00A3FF]">*</span>
                   </label>
                   <input
                     id="prn"
@@ -654,14 +649,14 @@ export default function JoinPage() {
                     placeholder="e.g. 12210890 / 2201045"
                     value={formData.prn}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.prn
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   />
                   {formErrors.prn && (
-                    <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1.5 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.prn}</span>
                     </p>
@@ -669,8 +664,8 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    WhatsApp / Contact Number <span className="text-rose-400">*</span>
+                  <label htmlFor="phone" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    WhatsApp / Contact Number <span className="text-[#00A3FF]">*</span>
                   </label>
                   <input
                     id="phone"
@@ -679,14 +674,14 @@ export default function JoinPage() {
                     placeholder="e.g. 9876543210"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.phone
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   />
                   {formErrors.phone && (
-                    <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1.5 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.phone}</span>
                     </p>
@@ -697,18 +692,18 @@ export default function JoinPage() {
               {/* Row 3: Academic Year & Department */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="year" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    Academic Year <span className="text-rose-400">*</span>
+                  <label htmlFor="year" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    Academic Year <span className="text-[#00A3FF]">*</span>
                   </label>
                   <select
                     id="year"
                     name="year"
                     value={formData.year}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.year
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   >
                     <option value="" disabled>Select your current year</option>
@@ -719,7 +714,7 @@ export default function JoinPage() {
                     ))}
                   </select>
                   {formErrors.year && (
-                    <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1.5 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.year}</span>
                     </p>
@@ -727,18 +722,18 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="department" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    Department / Branch <span className="text-rose-400">*</span>
+                  <label htmlFor="department" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    Department / Branch <span className="text-[#00A3FF]">*</span>
                   </label>
                   <select
                     id="department"
                     name="department"
                     value={formData.department}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.department
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   >
                     <option value="" disabled>Select your branch</option>
@@ -749,7 +744,7 @@ export default function JoinPage() {
                     ))}
                   </select>
                   {formErrors.department && (
-                    <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1.5 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.department}</span>
                     </p>
@@ -760,15 +755,15 @@ export default function JoinPage() {
               {/* Row 4: Primary Domain & Secondary Domain */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="primaryDomain" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    Primary Track Preference <span className="text-rose-400">*</span>
+                  <label htmlFor="primaryDomain" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    Primary Track Preference <span className="text-[#00A3FF]">*</span>
                   </label>
                   <select
                     id="primaryDomain"
                     name="primaryDomain"
                     value={formData.primaryDomain}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626] transition-all focus:outline-none"
                   >
                     {opportunitiesData.map((opp) => (
                       <option key={opp.id} value={opp.track}>
@@ -779,7 +774,7 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="secondaryDomain" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
+                  <label htmlFor="secondaryDomain" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
                     Secondary Track Preference (Optional)
                   </label>
                   <select
@@ -787,7 +782,7 @@ export default function JoinPage() {
                     name="secondaryDomain"
                     value={formData.secondaryDomain}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626] transition-all focus:outline-none"
                   >
                     <option value="None">None / Primary Preference Only</option>
                     {opportunitiesData.map((opp) => (
@@ -802,8 +797,8 @@ export default function JoinPage() {
               {/* Row 5: Links (Resume & GitHub/Portfolio) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="resumeLink" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                    Resume / Drive Link <span className="text-rose-400">*</span>
+                  <label htmlFor="resumeLink" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                    Resume / Drive Link <span className="text-[#00A3FF]">*</span>
                   </label>
                   <input
                     id="resumeLink"
@@ -812,17 +807,17 @@ export default function JoinPage() {
                     placeholder="https://drive.google.com/file/d/..."
                     value={formData.resumeLink}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.resumeLink
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   />
-                  <p className="text-[11px] text-slate-500 mt-1 font-mono">
+                  <p className="text-[11px] text-[#A3A3A3] mt-1 font-mono">
                     Ensure link access is set to "Anyone with link can view"
                   </p>
                   {formErrors.resumeLink && (
-                    <p className="mt-1 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.resumeLink}</span>
                     </p>
@@ -830,7 +825,7 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="githubOrPortfolio" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
+                  <label htmlFor="githubOrPortfolio" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
                     GitHub / Portfolio / Behance Link
                   </label>
                   <input
@@ -840,14 +835,14 @@ export default function JoinPage() {
                     placeholder="https://github.com/your-username"
                     value={formData.githubOrPortfolio}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none ${
                       formErrors.githubOrPortfolio
-                        ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                        : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                        : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                     }`}
                   />
                   {formErrors.githubOrPortfolio && (
-                    <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                    <p className="mt-1.5 text-xs text-[#00A3FF] flex items-center gap-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{formErrors.githubOrPortfolio}</span>
                     </p>
@@ -857,8 +852,8 @@ export default function JoinPage() {
 
               {/* Statement of Purpose */}
               <div>
-                <label htmlFor="statementOfPurpose" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
-                  Statement of Purpose / Why DSSA? <span className="text-rose-400">*</span>
+                <label htmlFor="statementOfPurpose" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
+                  Statement of Purpose / Why DSSA? <span className="text-[#00A3FF]">*</span>
                 </label>
                 <textarea
                   id="statementOfPurpose"
@@ -867,18 +862,18 @@ export default function JoinPage() {
                   placeholder="Tell us about your technical passion, why you wish to join DSSA, and what unique perspective or skills you bring to our team..."
                   value={formData.statementOfPurpose}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border transition-all focus:outline-none leading-relaxed ${
+                  className={`w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border transition-all focus:outline-none leading-relaxed ${
                     formErrors.statementOfPurpose
-                      ? "border-rose-500 focus:ring-1 focus:ring-rose-500"
-                      : "border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                      ? "border-[#262626] focus:ring-1 focus:ring-[#262626]"
+                      : "border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626]"
                   }`}
                 />
-                <div className="flex justify-between items-center text-[11px] text-slate-500 mt-1 font-mono">
+                <div className="flex justify-between items-center text-[11px] text-[#A3A3A3] mt-1 font-mono">
                   <span>Minimum 50 characters required</span>
                   <span>{formData.statementOfPurpose.length} characters</span>
                 </div>
                 {formErrors.statementOfPurpose && (
-                  <p className="mt-1 text-xs text-rose-400 flex items-center gap-1">
+                  <p className="mt-1 text-xs text-[#00A3FF] flex items-center gap-1">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span>{formErrors.statementOfPurpose}</span>
                   </p>
@@ -887,7 +882,7 @@ export default function JoinPage() {
 
               {/* Past Projects / Experience */}
               <div>
-                <label htmlFor="pastExperience" className="block text-xs font-mono uppercase text-slate-300 mb-2 font-semibold">
+                <label htmlFor="pastExperience" className="block text-xs font-mono uppercase text-[#A3A3A3] mb-2 font-semibold">
                   Key Projects, Hackathons, or Extracurricular Experience (Optional)
                 </label>
                 <textarea
@@ -897,7 +892,7 @@ export default function JoinPage() {
                   placeholder="Briefly mention any projects you built, datasets you explored, hackathons you attended, or relevant tools you have mastered..."
                   value={formData.pastExperience}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-lg bg-slate-950 text-slate-100 text-sm border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all focus:outline-none leading-relaxed"
+                  className="w-full px-4 py-3 rounded-lg bg-[#0D0D0D] text-[#A3A3A3] text-sm border border-[#262626] focus:border-[#262626] focus:ring-1 focus:ring-[#262626] transition-all focus:outline-none leading-relaxed"
                 />
               </div>
 
@@ -909,14 +904,14 @@ export default function JoinPage() {
                     name="agreeToCommitment"
                     checked={formData.agreeToCommitment}
                     onChange={handleInputChange}
-                    className="mt-1 w-4 h-4 rounded bg-slate-950 border-slate-800 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900"
+                    className="mt-1 w-4 h-4 rounded bg-[#0D0D0D] border-[#262626] text-[#00A3FF] focus:ring-[#262626] focus:ring-offset-slate-900"
                   />
-                  <span className="text-xs text-slate-300 leading-normal">
+                  <span className="text-xs text-[#A3A3A3] leading-normal">
                     I confirm that the information provided is accurate, and I am willing to commit 4–6 hours per week towards DSSA projects, meetings, and college technical initiatives.
                   </span>
                 </label>
                 {formErrors.agreeToCommitment && (
-                  <p className="mt-1 text-xs text-rose-400 flex items-center gap-1">
+                  <p className="mt-1 text-xs text-[#00A3FF] flex items-center gap-1">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span>{formErrors.agreeToCommitment}</span>
                   </p>
@@ -924,15 +919,15 @@ export default function JoinPage() {
               </div>
 
               {/* Submit Button */}
-              <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span className="text-xs text-slate-400 font-mono">
+              <div className="pt-4 border-t border-[#262626] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span className="text-xs text-[#A3A3A3] font-mono">
                   Applications close Nov 05, 2026 at 11:59 PM IST
                 </span>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 text-white font-semibold text-sm rounded-lg shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] cursor-pointer disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#FFFFFF] hover:bg-[#E5E5E5] disabled:bg-[#404040] text-[#000000] disabled:text-[#A3A3A3] font-semibold text-sm rounded-lg transition-all cursor-pointer disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -952,32 +947,6 @@ export default function JoinPage() {
 
         </div>
       </section>
-import { UserPlus } from 'lucide-react';
-
-export default function Join() {
-  return (
-    <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <div className="p-4 bg-blue-900/20 rounded-full border border-blue-500/20">
-              <UserPlus className="w-10 h-10 text-blue-400" />
-            </div>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Join DSSA
-          </h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Become a part of the data science community.
-          </p>
-        </div>
-        <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12 min-h-[400px] flex flex-col items-center justify-center space-y-4">
-          <div className="animate-pulse bg-slate-800/50 h-24 w-24 rounded-full mb-4"></div>
-          <div className="animate-pulse bg-slate-800/50 h-4 w-48 rounded-full"></div>
-          <div className="animate-pulse bg-slate-800/50 h-4 w-32 rounded-full"></div>
-          <p className="text-slate-500 text-lg mt-8 font-medium tracking-wide uppercase">Under Construction</p>
-        </div>
-      </div>
     </div>
   );
 }

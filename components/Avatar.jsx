@@ -24,7 +24,7 @@ export default function Avatar({ name, photo, size = 96, className = "" }) {
         width={size * 2}
         height={size * 2}
         style={style}
-        className={`rounded-full object-cover ring-1 ring-slate-700 ${className}`}
+        className={`rounded-full object-cover ring-1 ring-[#262626] ${className}`}
       />
     );
   }
@@ -34,7 +34,7 @@ export default function Avatar({ name, photo, size = 96, className = "" }) {
       role="img"
       aria-label={`${name} (photo coming soon)`}
       style={{ ...style, fontSize: size / 3 }}
-      className={`flex shrink-0 items-center justify-center rounded-full bg-linear-to-br from-slate-800 to-slate-900 font-semibold text-slate-300 ring-1 ring-slate-700 ${className}`}
+      className={`flex shrink-0 items-center justify-center rounded-full bg-[#0D0D0D] font-semibold text-[#A3A3A3] ring-1 ring-[#262626] ${className}`}
     >
       {initials(name)}
     </div>
