@@ -145,24 +145,33 @@ export default function Team() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                 {dept.members.map((member, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-[#262626] bg-[#0D0D0D] p-5 hover:border-[#404040] transition-colors flex flex-col justify-between"
+                    className="rounded-xl border border-[#262626] bg-[#0D0D0D] p-3.5 sm:p-5 hover:border-[#404040] transition-colors flex flex-col justify-between"
                   >
                     <div>
-                      <div className="w-12 h-12 rounded-xl bg-[#000000] border border-[#262626] flex items-center justify-center font-bold text-sm text-[#FFFFFF] mb-3 font-mono">
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")
-                          .slice(0, 2)}
+                      <div className="w-16 h-16 rounded-xl bg-[#000000] border border-[#262626] flex items-center justify-center font-bold text-sm text-[#FFFFFF] mb-3 font-mono overflow-hidden">
+                        {member.photo ? (
+                          <img
+                            src={member.photo}
+                            alt={member.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          member.name
+                            .split(" ")
+                            .filter(Boolean)
+                            .map((n) => n[0])
+                            .join("")
+                            .slice(0, 2)
+                        )}
                       </div>
-                      <h4 className="font-bold text-sm text-[#FFFFFF] tracking-tight">
+                      <h4 className="font-bold text-sm text-[#FFFFFF] tracking-tight break-words">
                         {member.name}
                       </h4>
-                      <p className="text-xs text-[#00A3FF] font-mono mt-0.5">
+                      <p className="text-xs text-[#00A3FF] font-mono mt-0.5 leading-tight">
                         {member.role}
                       </p>
                     </div>
