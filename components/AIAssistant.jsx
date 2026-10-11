@@ -70,6 +70,17 @@ export default function AIAssistant() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Escape key handler to close modal
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [isOpen]);
+
   // Dynamic Response Generator strictly utilizing the repository's original data files
   const generateAIResponse = (userQuery) => {
     const q = userQuery.toLowerCase().trim();
@@ -416,50 +427,43 @@ export default function AIAssistant() {
   return (
     <>
       {/* ─────────────────────────────────────────────────────────────
-          1. FLOATING ASSISTANT TRIGGER BUTTON (Bottom-Right)
+          1. FLOATING TRIGGER BUTTON (Bottom-Right, shown when closed)
           ───────────────────────────────────────────────────────────── */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-end gap-3 select-none">
-        {/* Helper Pill Banner */}
-        {showBadge && !isOpen && (
-          <div 
-            onClick={() => setIsOpen(true)}
-            className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#0D0D0D] border border-[#262626] shadow-xl text-xs text-[#FFFFFF] cursor-pointer hover:border-[#00A3FF] transition-all animate-in fade-in slide-in-from-right-4 duration-300"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#00A3FF] animate-ping" />
-            <span className="font-medium">Ask DSSA AI</span>
-            <button 
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowBadge(false);
-              }}
-              className="text-[#737373] hover:text-[#FFFFFF] ml-1"
+      {!isOpen && (
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 select-none">
+          {/* Helper Pill Banner */}
+          {showBadge && (
+            <div 
+              onClick={() => setIsOpen(true)}
+              className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#0D0D10]/95 border border-[#2B2B32] shadow-xl text-xs text-[#FFFFFF] cursor-pointer hover:border-[#00A3FF] transition-all animate-in fade-in slide-in-from-right-4 duration-300"
             >
-              <X className="w-3 h-3" />
-            </button>
-          </div>
-        )}
-
-        {/* Floating Bubble Button with DSSA Logo */}
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Close DSSA AI Assistant" : "Open DSSA AI Assistant"}
-          className={`relative group w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00A3FF] overflow-hidden ${
-            isOpen
-              ? "bg-[#171717] border-2 border-[#404040] text-[#FFFFFF]"
-              : "bg-[#0A0A0A] hover:bg-[#141414] border-2 border-[#262626] hover:border-[#00A3FF] text-[#FFFFFF] hover:scale-105"
-          }`}
-        >
-          {/* Subtle Outer Neon Glow Pulse */}
-          {!isOpen && (
-            <span className="absolute inset-0 rounded-full bg-[#00A3FF]/20 animate-pulse pointer-events-none" />
+              <span className="w-2 h-2 rounded-full bg-[#00A3FF] animate-ping" />
+              <span className="font-medium">Ask DSSA AI</span>
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowBadge(false);
+                }}
+                className="text-[#71717A] hover:text-[#FFFFFF] ml-1 p-0.5"
+                aria-label="Dismiss banner"
+              >
+                <X className="w-3 h-3" />
+              </button>
+            </div>
           )}
 
-          {isOpen ? (
-            <X className="w-6 h-6 text-[#FFFFFF]" />
-          ) : (
-            <div className="relative w-full h-full p-1.5 flex items-center justify-center">
-              <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-[#0D0D0D]">
+          {/* Floating Bubble Button with DSSA Logo */}
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open DSSA AI Assistant"
+            className="relative group w-14 h-14 sm:w-15 sm:h-15 rounded-full flex items-center justify-center bg-[#0D0D10] hover:bg-[#15151A] border-2 border-[#2B2B32] hover:border-[#00A3FF] shadow-[0_8px_32px_rgba(0,0,0,0.8),0_0_20px_rgba(0,163,255,0.2)] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#00A3FF]"
+          >
+            {/* Subtle Outer Glow */}
+            <span className="absolute inset-0 rounded-full bg-[#00A3FF]/20 animate-pulse pointer-events-none" />
+
+            <div className="relative w-full h-full p-2.5 flex items-center justify-center">
+              <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-[#000000]">
                 <Image
                   src="/dssa-logo.png"
                   alt="DSSA Logo"
@@ -469,42 +473,42 @@ export default function AIAssistant() {
                   priority
                 />
               </div>
-              {/* Green Online Dot */}
-              <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-[#10b981] border-2 border-[#0A0A0A]" />
+              {/* Online Green Indicator Dot */}
+              <span className="absolute top-1 right-1 w-3.5 h-3.5 rounded-full bg-[#10b981] border-2 border-[#0D0D10]" />
             </div>
-          )}
-        </button>
-      </div>
+          </button>
+        </div>
+      )}
 
       {/* ─────────────────────────────────────────────────────────────
-          2. EXPANDABLE CHAT PANEL (Properly arranged for Mobile & Desktop)
+          2. EXPANDABLE CHAT PANEL (Properly Arranged for Desktop & Mobile)
           ───────────────────────────────────────────────────────────── */}
       {isOpen && (
         <div 
-          className="fixed inset-x-3 bottom-3 sm:inset-x-auto sm:bottom-24 sm:right-6 z-50 w-auto sm:w-[410px] h-[calc(100dvh-1.5rem)] sm:h-[580px] max-h-[640px] flex flex-col rounded-2xl bg-[#0A0A0A]/95 border border-[#262626] backdrop-blur-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200"
+          className="fixed bottom-3 right-3 left-3 sm:left-auto sm:bottom-6 sm:right-6 z-50 sm:w-[420px] h-[calc(100dvh-1.5rem)] sm:h-[min(560px,calc(100dvh-5rem))] max-h-[640px] flex flex-col rounded-2xl bg-[#0D0D10] border border-[#2B2B32] shadow-[0_24px_70px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.08),0_0_32px_rgba(0,163,255,0.12)] backdrop-blur-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         >
-          {/* HEADER */}
-          <div className="px-4 py-3.5 border-b border-[#262626] bg-[#0F0F0F] flex items-center justify-between flex-shrink-0">
+          {/* HEADER (Always visible at top of window) */}
+          <div className="px-4 py-3.5 border-b border-[#24242A] bg-[#121216] flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#141414] border border-[#262626] flex items-center justify-center overflow-hidden flex-shrink-0">
+              <div className="relative w-8 h-8 rounded-full bg-[#000000] border border-[#2B2B32] flex items-center justify-center overflow-hidden flex-shrink-0 p-0.5">
                 <Image
                   src="/dssa-logo.png"
                   alt="DSSA Logo"
-                  width={30}
-                  height={30}
-                  className="w-full h-full object-cover"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
               <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 leading-tight">
                   <span className="text-sm font-bold text-[#FFFFFF] tracking-tight">DSSA Assistant</span>
-                  <span className="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-[#00A3FF]/20 text-[#00A3FF] border border-[#00A3FF]/30">
+                  <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-semibold bg-[#00A3FF]/20 text-[#00A3FF] border border-[#00A3FF]/30">
                     AI
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
-                  <span className="text-[10px] text-[#A3A3A3] font-mono">VIT Pune Knowledge Base</span>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
+                  <span className="text-[10px] text-[#A1A1AA] font-mono">VIT Pune Knowledge Base</span>
                 </div>
               </div>
             </div>
@@ -514,15 +518,17 @@ export default function AIAssistant() {
                 type="button"
                 onClick={handleReset}
                 title="Restart conversation"
-                className="p-1.5 rounded-lg text-[#737373] hover:text-[#FFFFFF] hover:bg-[#1A1A1A] transition-colors"
+                className="p-1.5 rounded-lg text-[#A1A1AA] hover:text-[#FFFFFF] hover:bg-[#1E1E24] transition-colors"
+                aria-label="Restart conversation"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                title="Close Assistant"
-                className="p-1.5 rounded-lg text-[#737373] hover:text-[#FFFFFF] hover:bg-[#1A1A1A] transition-colors"
+                title="Close Assistant (Esc)"
+                className="p-1.5 rounded-lg text-[#A1A1AA] hover:text-[#FFFFFF] hover:bg-[#1E1E24] transition-colors"
+                aria-label="Close Assistant"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -530,7 +536,7 @@ export default function AIAssistant() {
           </div>
 
           {/* MESSAGES THREAD */}
-          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 scrollbar-thin scrollbar-thumb-[#262626]">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 custom-scrollbar">
             {messages.map((msg) => {
               const isAi = msg.sender === "ai";
               return (
@@ -538,73 +544,87 @@ export default function AIAssistant() {
                   key={msg.id}
                   className={`flex flex-col ${isAi ? "items-start" : "items-end"}`}
                 >
-                  <div className="flex items-end gap-2 max-w-[88%]">
+                  <div className={`flex gap-2.5 max-w-[94%] ${isAi ? "items-start" : "items-end justify-end"}`}>
+                    {/* DSSA Logo Avatar on Top-Left of AI message */}
                     {isAi && (
-                      <div className="w-6 h-6 rounded-full bg-[#0D0D0D] border border-[#262626] overflow-hidden flex items-center justify-center flex-shrink-0 mb-1">
+                      <div className="w-7 h-7 rounded-full bg-[#000000] border border-[#2B2B32] overflow-hidden flex items-center justify-center flex-shrink-0 mt-0.5 p-0.5">
                         <Image
                           src="/dssa-logo.png"
                           alt="DSSA Logo"
-                          width={24}
-                          height={24}
-                          className="w-full h-full object-cover"
+                          width={26}
+                          height={26}
+                          className="w-full h-full object-cover rounded-full"
                         />
                       </div>
                     )}
 
-                    <div
-                      className={`px-3.5 py-2.5 rounded-2xl ${
-                        isAi
-                          ? "bg-[#141414] border border-[#262626] text-[#FFFFFF] rounded-bl-sm"
-                          : "bg-[#00A3FF] text-[#000000] font-medium rounded-br-sm selection:bg-[#000000] selection:text-[#FFFFFF]"
-                      }`}
-                    >
-                      <div className="space-y-1">
-                        {isAi ? formatMessageText(msg.text) : (
-                          <p className="text-xs sm:text-sm whitespace-pre-wrap">{msg.text}</p>
+                    <div className="flex flex-col flex-1 min-w-0">
+                      {/* Name & Timestamp header for AI */}
+                      {isAi && (
+                        <div className="flex items-center gap-2 mb-1 px-1">
+                          <span className="text-[11px] font-semibold text-[#E4E4E7]">DSSA Assistant</span>
+                          <span className="text-[10px] font-mono text-[#71717A]">{msg.timestamp}</span>
+                        </div>
+                      )}
+
+                      <div
+                        className={`px-3.5 py-2.5 rounded-2xl ${
+                          isAi
+                            ? "bg-[#141418] border border-[#26262C] text-[#FFFFFF] rounded-tl-sm shadow-md"
+                            : "bg-[#00A3FF] text-[#000000] font-medium rounded-br-sm shadow-md"
+                        }`}
+                      >
+                        <div className="space-y-1.5">
+                          {isAi ? formatMessageText(msg.text) : (
+                            <p className="text-xs sm:text-sm whitespace-pre-wrap">{msg.text}</p>
+                          )}
+                        </div>
+
+                        {/* AI Direct Action Links */}
+                        {isAi && msg.quickActions && msg.quickActions.length > 0 && (
+                          <div className="pt-2.5 mt-2.5 border-t border-[#26262C] flex flex-wrap gap-1.5">
+                            {msg.quickActions.map((action, i) => (
+                              <Link
+                                key={i}
+                                href={action.href}
+                                onClick={() => {
+                                  if (window.innerWidth < 640) setIsOpen(false);
+                                }}
+                                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-[#1C1C22] hover:bg-[#25252D] text-[#FFFFFF] border border-[#33333C] hover:border-[#00A3FF] transition-all hover:scale-[1.02]"
+                              >
+                                <span>{action.label}</span>
+                                <ArrowRight className="w-3 h-3 text-[#00A3FF]" />
+                              </Link>
+                            ))}
+                          </div>
                         )}
                       </div>
 
-                      {/* AI Direct Action Links */}
-                      {isAi && msg.quickActions && msg.quickActions.length > 0 && (
-                        <div className="pt-2.5 mt-2 border-t border-[#262626] flex flex-wrap gap-1.5">
-                          {msg.quickActions.map((action, i) => (
-                            <Link
-                              key={i}
-                              href={action.href}
-                              onClick={() => {
-                                if (window.innerWidth < 640) setIsOpen(false);
-                              }}
-                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-[#1C1C1C] hover:bg-[#262626] text-[#FFFFFF] border border-[#333333] hover:border-[#00A3FF] transition-colors"
-                            >
-                              <span>{action.label}</span>
-                              <ArrowRight className="w-3 h-3 text-[#00A3FF]" />
-                            </Link>
-                          ))}
-                        </div>
+                      {/* User Timestamp */}
+                      {!isAi && (
+                        <span className="text-[10px] font-mono text-[#71717A] mt-1 self-end px-1">
+                          {msg.timestamp}
+                        </span>
                       )}
                     </div>
                   </div>
-
-                  <span className="text-[9px] font-mono text-[#525252] mt-1 px-1">
-                    {msg.timestamp}
-                  </span>
                 </div>
               );
             })}
 
             {/* Typing Indicator */}
             {isTyping && (
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-[#0D0D0D] border border-[#262626] overflow-hidden flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-[#000000] border border-[#2B2B32] overflow-hidden flex items-center justify-center flex-shrink-0 mt-0.5 p-0.5">
                   <Image
                     src="/dssa-logo.png"
                     alt="DSSA Logo"
-                    width={24}
-                    height={24}
-                    className="w-full h-full object-cover"
+                    width={26}
+                    height={26}
+                    className="w-full h-full object-cover rounded-full"
                   />
                 </div>
-                <div className="px-3.5 py-2 rounded-2xl bg-[#141414] border border-[#262626] flex items-center gap-1">
+                <div className="px-3.5 py-2.5 rounded-2xl rounded-tl-sm bg-[#141418] border border-[#26262C] flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00A3FF] animate-bounce" style={{ animationDelay: "0ms" }} />
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00A3FF] animate-bounce" style={{ animationDelay: "150ms" }} />
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00A3FF] animate-bounce" style={{ animationDelay: "300ms" }} />
@@ -616,13 +636,13 @@ export default function AIAssistant() {
           </div>
 
           {/* QUICK PROMPT SUGGESTION PILLS */}
-          <div className="px-3 py-2 border-t border-[#1F1F1F] bg-[#0D0D0D]/90 overflow-x-auto scrollbar-none flex gap-1.5 flex-shrink-0">
+          <div className="px-3 py-2 border-t border-[#1F1F24] bg-[#0E0E12] overflow-x-auto no-scrollbar flex items-center gap-1.5 flex-shrink-0">
             {SUGGESTIONS.map((item, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => handleSendMessage(item.query)}
-                className="px-2.5 py-1 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#171717] hover:bg-[#242424] text-[#A3A3A3] hover:text-[#FFFFFF] border border-[#262626] hover:border-[#404040] transition-colors flex-shrink-0"
+                className="px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#16161B] hover:bg-[#22222A] text-[#D4D4D8] hover:text-[#FFFFFF] border border-[#2B2B34] hover:border-[#00A3FF]/60 transition-all flex-shrink-0 cursor-pointer active:scale-95"
               >
                 {item.label}
               </button>
@@ -630,7 +650,7 @@ export default function AIAssistant() {
           </div>
 
           {/* INPUT BAR */}
-          <div className="p-3 bg-[#0A0A0A] border-t border-[#262626] flex items-center gap-2 flex-shrink-0">
+          <div className="p-3 bg-[#0D0D10] border-t border-[#202026] flex items-center gap-2 flex-shrink-0">
             <input
               ref={inputRef}
               type="text"
@@ -638,7 +658,7 @@ export default function AIAssistant() {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask about events, domains, joining..."
-              className="flex-1 bg-[#141414] text-xs sm:text-sm text-[#FFFFFF] placeholder-[#737373] px-3.5 py-2.5 rounded-xl border border-[#262626] focus:outline-none focus:border-[#00A3FF] transition-colors"
+              className="flex-1 bg-[#15151A] text-xs sm:text-sm text-[#FFFFFF] placeholder-[#71717A] px-3.5 py-2.5 rounded-xl border border-[#2B2B34] focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/40 transition-all"
             />
             <button
               type="button"
@@ -646,8 +666,8 @@ export default function AIAssistant() {
               disabled={!inputValue.trim() || isTyping}
               className={`p-2.5 rounded-xl transition-all flex items-center justify-center ${
                 inputValue.trim() && !isTyping
-                  ? "bg-[#FFFFFF] hover:bg-[#E5E5E5] text-[#000000] cursor-pointer"
-                  : "bg-[#1A1A1A] text-[#525252] cursor-not-allowed"
+                  ? "bg-[#00A3FF] hover:bg-[#0092E6] text-[#000000] shadow-[0_0_12px_rgba(0,163,255,0.35)] cursor-pointer active:scale-95"
+                  : "bg-[#1C1C22] text-[#52525C] cursor-not-allowed"
               }`}
               aria-label="Send query"
             >
