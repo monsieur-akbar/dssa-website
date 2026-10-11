@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import AIAssistant from '@/components/AIAssistant';
 import './globals.css';
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className="flex-1 bg-[#000000]">{children}</main>
         <Footer />
+        <AIAssistant />
       </body>
     </html>
   );
