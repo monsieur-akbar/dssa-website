@@ -99,35 +99,35 @@ function TwitterIcon(props) {
 const SOCIAL_CHANNELS = [
   {
     name: "LinkedIn",
-    handle: "dssa-vit-pune",
-    url: "https://linkedin.com/company/dssa-vit-pune",
+    handle: "dssa-viit",
+    url: "https://www.linkedin.com/company/dssa-viit/",
     description: "Official club updates, hackathon announcements, and student spotlights.",
     icon: <LinkedinIcon />,
     badge: "Official",
   },
   {
-    name: "GitHub",
-    handle: "@dssa-vit",
-    url: "https://github.com/dssa-vit",
-    description: "Open source ML repositories, research codebases, and website repos.",
-    icon: <GithubIcon />,
-    badge: "Open Source",
-  },
-  {
     name: "Instagram",
-    handle: "@dssa_vitpune",
-    url: "https://instagram.com/dssa_vitpune",
+    handle: "@dssa__vit",
+    url: "https://www.instagram.com/dssa__vit/",
     description: "Behind-the-scenes, event reels, member highlights, and live stories.",
     icon: <InstagramIcon />,
     badge: "Community",
   },
   {
     name: "X (Twitter)",
-    handle: "@dssa_vit",
-    url: "https://x.com/dssa_vit",
+    handle: "@vitds_official",
+    url: "https://x.com/vitds_official",
     description: "Tech discussions, paper reviews, AI news bites, and hackathon threads.",
     icon: <TwitterIcon />,
     badge: "Tech News",
+  },
+  {
+    name: "GitHub",
+    handle: "@dssa-vit",
+    url: "#",
+    description: "Open source ML repositories and research codebases (coming soon).",
+    icon: <GithubIcon />,
+    badge: "Coming Soon",
   },
 ];
 
@@ -589,7 +589,7 @@ export default function ContactPage() {
             Visit Us at VIT Pune
           </h2>
           <p className="text-xs sm:text-sm text-[#A3A3A3] mt-1">
-            Our student chapter and AI incubation lab is situated on the main campus in Bibwewadi, Pune.
+            Our student chapter and AI incubation lab is situated on the Kondhwa campus in Pune.
           </p>
         </div>
 
@@ -610,22 +610,22 @@ export default function ContactPage() {
                 <p className="leading-relaxed flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-[#00A3FF] shrink-0 mt-0.5" />
                   <span>
-                    666, Upper Indiranagar, Bibwewadi,<br />
-                    Pune, Maharashtra 411037, India
+                    Vishwakarma Institute of Technology,<br />
+                    Kondhwa Campus, Pune, Maharashtra, India
                   </span>
                 </p>
 
                 <p className="leading-relaxed flex items-start gap-2.5">
                   <Building className="w-4 h-4 text-[#A3A3A3] shrink-0 mt-0.5" />
                   <span>
-                    <strong>Lab & Chamber:</strong> Room 402 / AI Innovation Lab, Computer & Data Science Building
+                    <strong>Lab & Chamber:</strong> Computer & Data Science Department
                   </span>
                 </p>
 
                 <p className="leading-relaxed flex items-start gap-2.5">
                   <Navigation className="w-4 h-4 text-[#00A3FF] shrink-0 mt-0.5" />
                   <span>
-                    <strong>Transit Landmark:</strong> Near Bibwewadi Bus Depot & Swami Vivekanand Statue
+                    <strong>Transit Landmark:</strong> Near Kondhwa Bus Stand & Seasonal Mall
                   </span>
                 </p>
               </div>
@@ -633,13 +633,13 @@ export default function ContactPage() {
               {/* Coordinates Pill */}
               <div className="p-3 rounded-lg bg-[#0D0D0D] border border-[#262626] text-[11px] font-mono text-[#A3A3A3] flex items-center justify-between">
                 <span>GPS Coordinates:</span>
-                <span className="text-[#A3A3A3] font-semibold">18.4637° N, 73.8682° E</span>
+                <span className="text-[#A3A3A3] font-semibold">18.4585° N, 73.8964° E</span>
               </div>
             </div>
 
             <div className="pt-6 mt-6 border-t border-[#262626]">
               <a
-                href="https://maps.google.com/?q=Vishwakarma+Institute+of+Technology+Pune"
+                href="https://maps.google.com/?q=Vishwakarma+Institute+of+Technology+Kondhwa+Pune"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#0D0D0D] hover:bg-[#1A1A1A] border border-[#404040] text-[#FFFFFF] text-xs font-semibold rounded-lg transition"
@@ -653,8 +653,8 @@ export default function ContactPage() {
           {/* Embedded Google Map (7 Cols) */}
           <div className="lg:col-span-7 h-80 sm:h-96 lg:h-auto min-h-[350px] relative bg-[#0D0D0D]">
             <iframe
-              title="VIT Pune Campus Map Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4419515949174!2d73.86562877598816!3d18.46372297091492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea950f616219%3A0x321bdae2cad9f190!2sVishwakarma%20Institute%20of%20Technology%20(VIT)!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              title="VIT Kondhwa Campus Map Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.7842156882985!2d73.89384187598789!3d18.458543370962805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb2e369d2b07%3A0x6b058f90828b2a58!2sVishwakarma%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               className="w-full h-full border-0 filter grayscale contrast-125 opacity-90 hover:opacity-100 hover:filter-none transition-all duration-500"
               allowFullScreen=""
               loading="lazy"
