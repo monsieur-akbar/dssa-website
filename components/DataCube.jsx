@@ -134,9 +134,9 @@ export default function DataCube() {
     scene.background = new THREE.Color(0x000000);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    // Adjusted for screen size: comfortable scale and distance on mobile portrait
+    // Adjusted for screen size
     const isMobile = width < 1024;
-    camera.position.set(0, 0, isMobile ? 8.2 : 7.5);
+    camera.position.set(0, 0, isMobile ? 9.4 : 7.5);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -147,8 +147,7 @@ export default function DataCube() {
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     const domElement = renderer.domElement;
-    // Allow native vertical scrolling on touch devices; desktop uses full canvas capture
-    domElement.style.touchAction = isMobile ? "pan-y" : "none";
+    domElement.style.touchAction = "none";
     container.appendChild(domElement);
 
     // --- Clean Space Lighting ---
@@ -293,10 +292,6 @@ export default function DataCube() {
     const cubeMesh = new THREE.Mesh(boxGeo, materials);
     scene.add(cubeMesh);
 
-    // Responsive scaling: scale down on mobile for an elegant, proportional centerpiece
-    const initialScale = isMobile ? 0.58 : 1.0;
-    cubeMesh.scale.set(initialScale, initialScale, initialScale);
-
     // Sharp white wireframe edges
     const edgesGeo = new THREE.EdgesGeometry(boxGeo);
     const edgesMat = new THREE.LineBasicMaterial({
@@ -328,18 +323,7 @@ export default function DataCube() {
     const initialEuler = new THREE.Euler(0.2, 0.45, 0, "YXZ");
     cubeMesh.quaternion.setFromEuler(initialEuler);
 
-    // --- Virtual Arcball Drag Physics with Mobile Scroll Protection ---
-    const raycaster = new THREE.Raycaster();
-    const pointerCoords = new THREE.Vector2();
-
-    function checkHitCube(clientX, clientY) {
-      const rect = domElement.getBoundingClientRect();
-      pointerCoords.x = ((clientX - rect.left) / rect.width) * 2 - 1;
-      pointerCoords.y = -((clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(pointerCoords, camera);
-      return raycaster.intersectObject(cubeMesh, true).length > 0;
-    }
-
+    // --- Virtual Arcball Drag Physics (Zero Gimbal Lock) ---
     function getArcballVector(clientX, clientY) {
       const rect = domElement.getBoundingClientRect();
       const w = rect.width;
@@ -365,50 +349,24 @@ export default function DataCube() {
     let angularAxis = new THREE.Vector3(0, 1, 0);
     let angularSpeed = 0;
     let lastInteractionTime = performance.now();
-    let touchStartX = 0;
-    let touchStartY = 0;
 
     const autoRotateAxis = new THREE.Vector3(0.2, 1, 0.12).normalize();
 
     const onPointerDown = (e) => {
-      const isMob = container.clientWidth < 1024;
-      // On mobile screens, only respond if touching the cube directly, leaving background space free to scroll
-      if (isMob && !checkHitCube(e.clientX, e.clientY)) {
-        return;
-      }
-
       isPointerDown = true;
       snapTargetRef.current = null;
       activePointerId = e.pointerId;
       lastInteractionTime = performance.now();
       angularSpeed = 0;
-      touchStartX = e.clientX;
-      touchStartY = e.clientY;
       prevArcballVec = getArcballVector(e.clientX, e.clientY);
 
-      // Only lock pointer capture on desktop mouse to avoid blocking native mobile vertical page scrolling
-      if (e.pointerType === "mouse") {
-        try {
-          domElement.setPointerCapture(e.pointerId);
-        } catch (err) {}
-      }
+      try {
+        domElement.setPointerCapture(e.pointerId);
+      } catch (err) {}
     };
 
     const onPointerMove = (e) => {
       if (!isPointerDown) return;
-
-      const isMob = container.clientWidth < 1024;
-      // On mobile touch: if the user's primary motion is vertical, let the browser scroll naturally
-      if (isMob && e.pointerType === "touch") {
-        const dx = Math.abs(e.clientX - touchStartX);
-        const dy = Math.abs(e.clientY - touchStartY);
-
-        if (dy > dx && dy > 8) {
-          isPointerDown = false;
-          return;
-        }
-      }
-
       lastInteractionTime = performance.now();
 
       const currVec = getArcballVector(e.clientX, e.clientY);
@@ -435,11 +393,9 @@ export default function DataCube() {
       isPointerDown = false;
       lastInteractionTime = performance.now();
       if (activePointerId !== null) {
-        if (e && e.pointerType === "mouse") {
-          try {
-            domElement.releasePointerCapture(activePointerId);
-          } catch (err) {}
-        }
+        try {
+          domElement.releasePointerCapture(activePointerId);
+        } catch (err) {}
         activePointerId = null;
       }
     };
@@ -491,10 +447,10 @@ export default function DataCube() {
       const now = performance.now();
       const timeSinceInteraction = (now - lastInteractionTime) / 1000;
 
-      // Centered celestial floating (shifted slightly higher on mobile for visual balance)
+      // Subtle celestial floating (shifted higher on mobile to give generous spacing below for the card)
       const isMob = container.clientWidth < 1024;
-      const baseY = isMob ? 0.50 : 0;
-      cubeMesh.position.y = baseY + Math.sin(elapsedTime * 1.2) * 0.05;
+      const baseY = isMob ? 0.55 : 0;
+      cubeMesh.position.y = baseY + Math.sin(elapsedTime * 1.2) * 0.08;
 
       if (!prefersReducedMotion) {
         // Deep stars slow drift
@@ -535,15 +491,10 @@ export default function DataCube() {
       const nw = container.clientWidth;
       const nh = container.clientHeight;
       if (nw > 0 && nh > 0) {
-        const isMob = nw < 1024;
         camera.aspect = nw / nh;
-        camera.position.z = isMob ? 8.2 : 7.5;
+        const isMob = nw < 1024;
+        camera.position.z = isMob ? 9.4 : 7.5;
         camera.updateProjectionMatrix();
-
-        const newScale = isMob ? 0.58 : 1.0;
-        cubeMesh.scale.set(newScale, newScale, newScale);
-        domElement.style.touchAction = isMob ? "pan-y" : "none";
-
         renderer.setSize(nw, nh);
       }
     });
@@ -638,7 +589,7 @@ export default function DataCube() {
   };
 
   return (
-    <div className="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-0 lg:h-full select-none bg-black flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
+    <div className="relative w-full min-h-[860px] sm:min-h-[880px] lg:min-h-0 lg:h-full select-none bg-black flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
       {/* Full-Screen 3D Deep Space Canvas */}
       <div
         ref={containerRef}
@@ -693,10 +644,10 @@ export default function DataCube() {
       </div>
 
       {/* Mobile Middle Spacer: Dedicated open space for 3D Cube interaction */}
-      <div className="lg:hidden flex-1 min-h-[220px] sm:min-h-[260px] pointer-events-none" />
+      <div className="lg:hidden flex-1 min-h-[440px] pointer-events-none" />
 
       {/* Mobile Bottom Domain Info Drawer: Generous spacing below the 3D cube */}
-      <div className="lg:hidden relative z-20 px-4 pt-3 pb-8 sm:pb-12 flex justify-center pointer-events-auto">
+      <div className="lg:hidden relative z-20 px-4 pt-8 pb-14 sm:pb-16 flex justify-center pointer-events-auto">
         <div className="w-full max-w-md p-4 sm:p-5 rounded-xl bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl shadow-2xl flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
