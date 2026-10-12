@@ -1,77 +1,152 @@
+
 [
   {
-    "id": 1,
-    "title": "National Hackathon Victory",
-    "category": "Hackathons",
-    "year": "2026",
-    "position": "1st Place",
-    "team": "DSSA Innovation Team",
-    "description": "The team secured first place in a national-level hackathon by developing an innovative data-driven solution to a real-world problem.",
-    "images": [
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72",
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902",
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
-    ],
-    "link": "https://example.com"
-  },
-  {
-    "id": 2,
-    "title": "Research Paper Publication",
+    "title": "National-Level Achievement in Robotics and Logistics",
     "category": "Research",
-    "year": "2026",
-    "position": "Published",
-    "team": "DSSA Research Group",
-    "description": "A student research team successfully published a research paper exploring innovative approaches in data science and intelligent systems.",
-    "images": [
-      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32",
-      "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0",
-      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173"
+    "description": "The team secured All India Rank 4 among more than 3,000 teams across all themes and more than 500 teams within its specific theme. The achievement followed a seven-month development programme involving multi-holonomic logistics robots, computer vision, path planning, and real-time decision-making. The team ranked among the top 0.5% nationwide.",
+    "highlights": [
+      "All India Rank 4",
+      "More than 3,000 teams across all themes",
+      "Top 0.5% nationwide"
     ],
-    "link": "https://example.com"
+    "images": [
+      "/achievements/image5.jpeg",
+      "/achievements/image.png"
+    ]
   },
   {
-    "id": 3,
-    "title": "Outstanding Student Achievement",
-    "category": "Milestones",
-    "year": "2026",
-    "position": "Excellence Award",
-    "team": "DSSA Student Community",
-    "description": "A DSSA student was recognized for outstanding technical performance, innovation and contribution to the student community.",
-    "images": [
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
-      "https://images.unsplash.com/photo-1564981797816-1043664bf78d",
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644"
-    ],
-    "link": "https://example.com"
-  },
-  {
-    "id": 4,
-    "title": "Inter-College Innovation Challenge",
+    "title": "NexGen 36-Hour Hackathon",
     "category": "Hackathons",
-    "year": "2025",
-    "position": "Finalist",
-    "team": "DSSA Tech Team",
-    "description": "The team reached the final round of an inter-college innovation challenge after presenting a technology-driven solution.",
-    "images": [
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678",
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72"
+    "description": "The SY CSE-DS team secured second position at the NexGen 36-Hour Hackathon held at RKGIT, Ghaziabad, and received a prize of ₹30,000.",
+    "highlights": [
+      "Second position",
+      "₹30,000 prize"
     ],
-    "link": "https://example.com"
+    "images": [
+      "/achievements/image9.jpg"
+    ]
   },
   {
-    "id": 5,
-    "title": "Data Science Excellence",
-    "category": "Milestones",
-    "year": "2025",
-    "position": "Top Performer",
-    "team": "DSSA Data Science Team",
-    "description": "Recognition for exceptional performance in data science, analytics and technical project development.",
-    "images": [
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+    "title": "Allianz Tech Innovation Challenge 2026",
+    "category": "Hackathons",
+    "description": "First position was secured at the Allianz Tech Innovation Challenge 2026, with a scholarship valued at €3,000.",
+    "highlights": [
+      "First position",
+      "€3,000 scholarship"
     ],
-    "link": "https://example.com"
+    "images": [
+      "/achievements/image8.png"
+    ]
+  },
+  {
+    "title": "Tryst 26 – IIT Delhi AI Hackathon",
+    "category": "Hackathons",
+    "description": "Team Binary Brains secured second place at the Tryst 26 AI Hackathon hosted by IIT Delhi and received a prize of ₹25,000.",
+    "highlights": [
+      "Second place",
+      "₹25,000 prize"
+    ],
+    "images": [
+      "/achievements/image9.jpg"
+    ]
+  },
+  {
+    "title": "AVINYA 4.0 National Hackathon",
+    "category": "Hackathons",
+    "description": "Team Astranova secured second runner-up position at the AVINYA 4.0 National Hackathon and received a prize of ₹10,000.",
+    "highlights": [
+      "Second runner-up",
+      "₹10,000 prize"
+    ],
+    "images": [
+      "/achievements/image4.jpg"
+    ]
+  },
+  {
+    "title": "Idea 2 Impact Ideathon",
+    "category": "Hackathons",
+    "description": "Team LISA won first prize at the Idea 2 Impact Ideathon held during E-Summit 26.",
+    "highlights": [
+      "First prize",
+      "E-Summit 26"
+    ],
+    "images": [
+      "/achievements/image10.jpg"
+    ]
+  },
+  {
+    "title": "Satkaam Thinking Challenge 2026",
+    "category": "Hackathons",
+    "description": "First place was secured at the Satkaam Thinking Challenge 2026.",
+    "highlights": [
+      "First place"
+    ],
+    "images": [
+      "/achievements/image11.jpg"
+    ]
+  },
+  {
+    "title": "Agri Bandu – Best Sustainable Solution",
+    "category": "Hackathons",
+    "description": "The Agri Bandu team won the Best Sustainable Solution award at the RIT Hackathon.",
+    "highlights": [
+      "Best Sustainable Solution",
+      "RIT Hackathon"
+    ],
+    "images": [
+      "/achievements/image3.jpg",
+      "/achievements/image7.png"
+    ]
+  },
+  {
+    "title": "Credenz Web Weaver",
+    "category": "Hackathons",
+    "description": "Team TRUSTRA secured runner-up position at Credenz Web Weaver and received a prize of ₹2,000.",
+    "highlights": [
+      "Runner-up position",
+      "₹2,000 prize"
+    ],
+    "images": [
+      "/achievements/image11.jpg",
+      "/achievements/image6.jpg"
+    ]
+  },
+  {
+    "title": "Odoo 24-Hour Hackathon",
+    "category": "Hackathons",
+    "description": "The SY CSE-DS team secured fifth position at the Odoo 24-Hour Hackathon held at IIT Gandhinagar, competing against more than 150 teams from across India.",
+    "highlights": [
+      "Fifth position",
+      "More than 150 competing teams"
+    ],
+    "images": [
+      "/achievements/image10.jpg",
+      "/achievements/image3.png"
+    ]
+  },
+  {
+    "title": "Odoo × VIT Pune Hackathon 2026",
+    "category": "Hackathons",
+    "description": "Team OverClocked secured second runner-up position at the Odoo × VIT Pune Hackathon 2026.",
+    "highlights": [
+      "Second runner-up"
+    ],
+    "images": [
+      "/achievements/image6.jpg",
+      "/achievements/image7.png"
+    ]
+  },
+  {
+    "title": "Shortlisting for Design Impact Movement 2025–26",
+    "category": "Research",
+    "description": "A project was shortlisted for the Design Impact Movement 2025–26 by Titan Company Limited for socially impactful technological innovations.",
+    "highlights": [
+      "Shortlisted by Titan Company Limited",
+      "Design Impact Movement 2025–26"
+    ],
+    "images": [
+      "/achievements/image3.png",
+      "/achievements/image4.jpg"
+    ]
   }
 ]
