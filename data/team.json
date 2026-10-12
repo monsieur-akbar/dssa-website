@@ -1,12 +1,21 @@
 {
+  "hod": {
+    "name": "Dr. Deepa Abin",
+    "designation": "Head of Department & Associate Professor",
+    "department": "Department of Computer Science & Engineering (Data Science), VIT Pune",
+    "bio": "Leads the department steering academic vision, research excellence, and strategic student initiatives in Data Science.",
+    "photo": "/images/team/core/Deepa_Abin_Mam.jpeg",
+    "linkedin": "https://www.linkedin.com/in/dr-deepa-abin-a40713227",
+    "email": "deepa.abin@vit.edu"
+  },
   "faculty": {
-    "name": "Dr. S. R. Shinde",
-    "designation": "Faculty Advisor & Professor",
-    "department": "Department of Computer Engineering & Data Science, VIT Pune",
-    "bio": "Guides DSSA's activities, mentors student teams, and coordinates departmental industry partnerships and research projects in artificial intelligence and applied analytics.",
-    "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-    "linkedin": "https://linkedin.com",
-    "email": "faculty.advisor@vit.edu"
+    "name": "Prof. Punam Sawale",
+    "designation": "Faculty Advisor & Assistant Professor",
+    "department": "Department of Computer Science & Engineering (Data Science), VIT Pune",
+    "bio": "Guides DSSA activities, student committee development, and coordinates departmental academic and technical events.",
+    "photo": "/images/team/core/Punam_Mam.jpeg",
+    "linkedin": "https://www.linkedin.com/in/punam-sawale-b069901b3",
+    "email": "punam.sawale@vit.edu"
   },
   "committee": [
     {
