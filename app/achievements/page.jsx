@@ -1,32 +1,384 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
+import PageHeader from "@/components/PageHeader";
 import achievementsData from "@/data/achievements.json";
+import projectData from "@/data/projects.json";
 import {
-  ArrowDownRight,
-  ArrowLeft,
-  ArrowRight,
   Award,
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-  Images,
-  Search,
+  ArrowUpRight,
+  CheckCircle2,
+  Code2,
+  Cpu,
+  FlaskConical,
+  GraduationCap,
+  Lightbulb,
+  Microscope,
   Sparkles,
-  X,
+  Users,
 } from "lucide-react";
 
-const categories = ["All", "Hackathons", "Research", "Milestones"];
+const heroFallbackImages = [
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=85",
+  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85",
+  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=85",
+];
+
+const domainFallbackImages = {
+  software: [
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85",
+  ],
+  hardware: [
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85",
+  ],
+  ai: [
+    "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85",
+  ],
+  data: [
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85",
+  ],
+  research: [
+    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1455390582262-044c04d277ea?auto=format&fit=crop&w=1200&q=85",
+  ],
+  culture: [
+    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85",
+  ],
+};
+
+// Keep these paths aligned with the local photo paths used in
+// your previous showcase. Add the corresponding real photos in public.
+const localAchievementImages = [
+  "/achievements/achievement-1.jpg",
+  "/achievements/achievement-2.jpg",
+  "/achievements/achievement-3.jpg",
+  "/achievements/achievement-4.jpg",
+];
+
+const domains = [
+  {
+    id: "software",
+    number: "01",
+    title: "Software Development",
+    eyebrow: "Build for the real world",
+    description:
+      "Transform ideas into useful digital experiences through web applications, software engineering, and practical problem-solving.",
+    tags: ["Web Development", "Application Design", "Engineering"],
+    images: domainFallbackImages.software,
+    icon: Code2,
+  },
+  {
+    id: "hardware",
+    number: "02",
+    title: "Hardware & IoT",
+    eyebrow: "Make ideas tangible",
+    description:
+      "Explore electronics, embedded systems, connected devices, and prototypes that bridge software with the physical world.",
+    tags: ["Electronics", "Embedded Systems", "IoT"],
+    images: domainFallbackImages.hardware,
+    icon: Cpu,
+  },
+  {
+    id: "ai",
+    number: "03",
+    title: "AI & Machine Learning",
+    eyebrow: "Make intelligence useful",
+    description:
+      "Experiment with intelligent systems, predictive models, computer vision, and machine learning to investigate real-world problems.",
+    tags: ["Machine Learning", "AI", "Computer Vision"],
+    images: domainFallbackImages.ai,
+    icon: Lightbulb,
+  },
+  {
+    id: "data",
+    number: "04",
+    title: "Data Science & Analytics",
+    eyebrow: "Find meaning in data",
+    description:
+      "Turn raw information into insights through data exploration, statistical thinking, visualization, and analytical problem-solving.",
+    tags: ["Data Analytics", "Statistics", "Visualization"],
+    images: domainFallbackImages.data,
+    icon: FlaskConical,
+  },
+  {
+    id: "research",
+    number: "05",
+    title: "Research Culture",
+    eyebrow: "Ask better questions",
+    description:
+      "Encourage curiosity, structured experimentation, literature exploration, and the development of ideas backed by evidence.",
+    tags: ["Experimentation", "Research", "Innovation"],
+    images: domainFallbackImages.research,
+    icon: Microscope,
+  },
+  {
+    id: "collaboration",
+    number: "06",
+    title: "Innovation & Collaboration",
+    eyebrow: "Create together",
+    description:
+      "Bring different skills and perspectives together through teamwork, peer learning, technical discussions, and shared challenges.",
+    tags: ["Teamwork", "Peer Learning", "Creativity"],
+    images: domainFallbackImages.culture,
+    icon: Users,
+  },
+];
+
+const cultureMessages = [
+  {
+    title: "Learn by doing",
+    description:
+      "Explore concepts through experimentation, practice, iteration, and hands-on technical learning.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Grow through mentorship",
+    description:
+      "Learn from faculty guidance, constructive feedback, and the experience of fellow members.",
+    icon: GraduationCap,
+  },
+  {
+    title: "Build through teamwork",
+    description:
+      "Share knowledge, combine strengths, and collaborate to develop better ideas and solutions.",
+    icon: Users,
+  },
+  {
+    title: "Think like a researcher",
+    description:
+      "Stay curious, question assumptions, explore evidence, and keep improving your understanding.",
+    icon: Microscope,
+  },
+];
+
+const categories = [
+  "All",
+  "Hackathons",
+  "Research",
+  "Milestones",
+  "Participation",
+  "Industrial Visits",
+];
+
+function AutomaticSlideshow({
+  images,
+  alt,
+  interval = 4500,
+  className = "",
+  imageClassName = "",
+}) {
+  const safeImages = images?.length ? images : heroFallbackImages;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [failedImages, setFailedImages] = useState([]);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+    setFailedImages([]);
+  }, [images]);
+
+  useEffect(() => {
+    if (safeImages.length <= 1) return undefined;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((current) => (current + 1) % safeImages.length);
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [safeImages, interval]);
+
+  const currentImage = safeImages[currentIndex];
+
+  return (
+    <div className={`relative overflow-hidden ${className}`}>
+      {currentImage && !failedImages.includes(currentImage) ? (
+        <img
+          key={currentImage}
+          src={currentImage}
+          alt={alt}
+          loading="lazy"
+          className={`h-full w-full object-cover ${imageClassName}`}
+          onError={() => {
+            setFailedImages((previous) =>
+              previous.includes(currentImage)
+                ? previous
+                : [...previous, currentImage]
+            );
+          }}
+        />
+      ) : (
+        <div className="flex h-full min-h-48 items-center justify-center bg-[#0D0D0D] px-5 text-center text-sm text-[#737373]">
+          Add the corresponding photo to display it here.
+        </div>
+      )}
+
+      {safeImages.length > 1 && (
+        <div className="absolute bottom-4 right-4 rounded-full border border-white/15 bg-black/65 px-3 py-1.5 font-mono text-xs text-white backdrop-blur-md">
+          {currentIndex + 1} / {safeImages.length}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SectionHeading({ eyebrow, title, description }) {
+  return (
+    <div className="mb-8 border-b border-[#262626] pb-5 sm:mb-10">
+      <p className="mb-2 text-xs font-mono uppercase tracking-[0.2em] text-[#00A3FF]">
+        {eyebrow}
+      </p>
+      <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+        {title}
+      </h2>
+      {description && (
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-[#A3A3A3] sm:text-base">
+          {description}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function AchievementCard({ achievement, index }) {
+  const suppliedImages = Array.isArray(achievement.images)
+    ? achievement.images.filter(Boolean)
+    : [];
+
+  // Use existing achievement photo paths when the JSON has no image list.
+  const images = suppliedImages.length
+    ? suppliedImages
+    : [localAchievementImages[index % localAchievementImages.length]];
+
+  return (
+    <article className="group overflow-hidden rounded-xl border border-[#262626] bg-[#0D0D0D] transition duration-300 hover:-translate-y-1 hover:border-[#00A3FF]/60">
+      <div className="relative h-52 overflow-hidden border-b border-[#262626] sm:h-60">
+        <AutomaticSlideshow
+          images={images}
+          alt={achievement.title}
+          className="h-full w-full"
+          imageClassName="transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+        <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-md border border-white/15 bg-black/65 px-3 py-1.5 text-xs text-white backdrop-blur-md">
+          <Award size={14} className="text-[#00A3FF]" />
+          {achievement.category || "Achievement"}
+        </div>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="text-lg font-bold leading-snug text-white">
+          {achievement.title}
+        </h3>
+
+        <p className="mt-3 text-sm leading-7 text-[#A3A3A3]">
+          {achievement.description}
+        </p>
+
+        {achievement.highlights?.length > 0 && (
+          <div className="mt-5 border-t border-[#262626] pt-4">
+            <p className="mb-3 text-[11px] font-mono uppercase tracking-widest text-[#737373]">
+              Highlights
+            </p>
+            <ul className="space-y-2.5">
+              {achievement.highlights.map((highlight, highlightIndex) => (
+                <li
+                  key={`${highlight}-${highlightIndex}`}
+                  className="flex items-start gap-2.5 text-sm leading-6 text-[#A3A3A3]"
+                >
+                  <CheckCircle2
+                    size={15}
+                    className="mt-1 shrink-0 text-[#00A3FF]"
+                  />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function DomainCard({ domain }) {
+  const Icon = domain.icon;
+
+  return (
+    <article className="group overflow-hidden rounded-xl border border-[#262626] bg-[#0D0D0D] transition duration-300 hover:-translate-y-1 hover:border-[#00A3FF]/60">
+      <div className="relative h-56 overflow-hidden sm:h-64">
+        <AutomaticSlideshow
+          images={domain.images}
+          alt={domain.title}
+          className="h-full w-full"
+          interval={4000}
+          imageClassName="transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+
+        <div className="absolute left-4 top-4 rounded-md border border-white/15 bg-black/65 px-3 py-1.5 font-mono text-xs text-white backdrop-blur-md">
+          {domain.number} / DSSA
+        </div>
+
+        <div className="absolute bottom-4 left-5 flex h-10 w-10 items-center justify-center rounded-lg border border-[#00A3FF]/30 bg-black/70 text-[#00A3FF] backdrop-blur-md">
+          <Icon size={20} />
+        </div>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <p className="text-[11px] font-mono uppercase tracking-widest text-[#00A3FF]">
+          {domain.eyebrow}
+        </p>
+
+        <h3 className="mt-2 text-xl font-bold tracking-tight text-white">
+          {domain.title}
+        </h3>
+
+        <p className="mt-3 text-sm leading-7 text-[#A3A3A3]">
+          {domain.description}
+        </p>
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {domain.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-md border border-[#262626] bg-black px-2.5 py-1.5 text-xs text-[#A3A3A3] transition-colors group-hover:border-[#404040]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-5 flex items-center gap-2 border-t border-[#262626] pt-4 text-xs text-[#737373]">
+          <Sparkles size={14} className="text-[#00A3FF]" />
+          Explore, experiment, innovate
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function AchievementsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeGallery, setActiveGallery] = useState(null);
-  const [slideIndexes, setSlideIndexes] = useState({});
 
   const achievements = Array.isArray(achievementsData)
     ? achievementsData
     : achievementsData.achievements || [];
+
+  // Reuse the images already configured in the previous showcase.
+  const configuredHeroImages = Array.isArray(projectData.featuredImages)
+    ? projectData.featuredImages.filter(Boolean)
+    : [];
+
+  const heroImages = [
+    ...new Set([...configuredHeroImages, ...heroFallbackImages]),
+  ];
 
   const filteredAchievements = achievements.filter((achievement) => {
     const matchesCategory =
@@ -49,600 +401,193 @@ export default function AchievementsPage() {
     );
   });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideIndexes((previous) => {
-        const updated = { ...previous };
-
-        achievements.forEach((achievement, index) => {
-          const images = achievement.images || [];
-
-          if (images.length > 1) {
-            updated[index] =
-              ((previous[index] || 0) + 1) % images.length;
-          }
-        });
-
-        return updated;
-      });
-    }, 4500);
-
-    return () => clearInterval(interval);
-  }, [achievements]);
-
-  useEffect(() => {
-    if (!activeGallery) return;
-
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") setActiveGallery(null);
-      if (event.key === "ArrowRight") changeGalleryImage(1);
-      if (event.key === "ArrowLeft") changeGalleryImage(-1);
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [activeGallery]);
-
-  function changeGalleryImage(direction) {
-    setActiveGallery((current) => {
-      if (!current || current.images.length <= 1) return current;
-
-      return {
-        ...current,
-        index:
-          (current.index + direction + current.images.length) %
-          current.images.length,
-      };
-    });
-  }
-
-  function openGallery(achievement, index = 0) {
-    if (!achievement.images?.length) return;
-
-    setActiveGallery({
-      title: achievement.title,
-      images: achievement.images,
-      index,
-    });
-  }
-
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
-      {/* Ambient background */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-48 top-20 h-[420px] w-[420px] rounded-full bg-cyan-500/10 blur-[140px]" />
-        <div className="absolute -right-40 top-[500px] h-[500px] w-[500px] rounded-full bg-violet-600/10 blur-[150px]" />
-        <div className="absolute bottom-0 left-1/3 h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[140px]" />
+    <main className="min-h-screen overflow-hidden bg-[#000000] pb-24 text-white">
+      <PageHeader
+        eyebrow="DSSA · Achievements & Innovation"
+        title="Ideas Into Impact"
+        description="Celebrating student accomplishments, technical curiosity, collaborative learning, and a culture of innovation."
+      />
 
-        <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "45px 45px",
-          }}
-        />
-      </div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Hero: one large automatic slideshow, with no thumbnail previews. */}
+        <section className="relative mt-8 sm:mt-12">
+          <div className="pointer-events-none absolute -inset-1 rounded-2xl bg-[#00A3FF]/10 blur-xl" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        {/* Department hero */}
-        <section className="relative mb-16 overflow-hidden rounded-[30px] border border-white/[0.09] bg-gradient-to-br from-white/[0.055] via-[#0b1024]/70 to-cyan-950/20 px-5 py-12 text-center shadow-[0_20px_80px_rgba(0,0,0,0.18)] sm:px-10 sm:py-16 lg:py-20">
-          <div className="pointer-events-none absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent" />
-
-          <div className="pointer-events-none absolute -left-20 top-10 h-44 w-44 rounded-full border border-cyan-300/[0.08]" />
-          <div className="pointer-events-none absolute -right-16 bottom-0 h-56 w-56 rounded-full border border-violet-300/[0.08]" />
-
-          <div className="relative">
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.07] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-200 sm:text-xs">
-              <Sparkles size={15} />
-              CSE · Data Science Department
-            </div>
-
-            <h1 className="mx-auto max-w-5xl text-4xl font-black leading-[1.12] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Moments That{" "}
-              <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                Make Us
-              </span>
-              <br className="hidden sm:block" />{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-200 bg-clip-text text-transparent">
-                  Proud
-                </span>
-                <span className="absolute -bottom-2 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-300 to-cyan-300 opacity-80" />
-              </span>
-            </h1>
-
-            <p className="mx-auto mt-8 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base sm:leading-8">
-              Every achievement tells a story. Explore the ideas,
-              discoveries, teamwork, and unforgettable experiences
-              that shape our department&apos;s journey.
-            </p>
-
-            <a
-              href="#achievement-wall"
-              className="group mt-9 inline-flex items-center gap-3 rounded-xl border border-cyan-300/25 bg-cyan-300/[0.07] px-5 py-3.5 text-sm font-semibold text-cyan-100 shadow-[0_0_30px_rgba(34,211,238,0.06)] transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/50 hover:bg-cyan-300/[0.12]"
-            >
-              Explore Achievements
-              <ArrowDownRight
-                size={18}
-                className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+          <div className="relative overflow-hidden rounded-xl border border-[#262626] bg-[#0D0D0D]">
+            <div className="relative h-[340px] sm:h-[460px] lg:h-[540px]">
+              <AutomaticSlideshow
+                images={heroImages}
+                alt="DSSA technical innovation showcase"
+                interval={5000}
+                className="absolute inset-0"
               />
-            </a>
+
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+
+              <div className="absolute inset-0 flex items-end p-6 sm:p-10 lg:p-14">
+                <div className="max-w-2xl">
+                  <p className="mb-4 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#33B5FF]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#00A3FF]" />
+                    Think · Build · Explore · Publish
+                  </p>
+
+                  <h2 className="text-3xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                    More than achievements.
+                    <span className="mt-2 block text-[#33B5FF]">
+                      A culture of creation.
+                    </span>
+                  </h2>
+
+                  <p className="mt-5 max-w-xl text-sm leading-7 text-[#D4D4D4] sm:text-base">
+                    Discover the accomplishments, ideas, technical communities,
+                    and shared learning that shape the DSSA experience.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Beautiful Achievement Wall heading */}
-        <section id="achievement-wall" className="mb-9 scroll-mt-24">
-          <div className="mb-7 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        {/* Achievements */}
+        <section id="achievements" className="mt-20 scroll-mt-24 sm:mt-28">
+          <SectionHeading
+            eyebrow="Wall of Fame"
+            title="Achievements & Milestones"
+            description="Recognizing accomplishments across hackathons, research, internships, competitions, and student initiatives."
+          />
+
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => {
+                const active = activeCategory === category;
+
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() => setActiveCategory(category)}
+                    className={`rounded-lg border px-3 py-2 text-xs font-medium transition-colors sm:text-sm ${
+                      active
+                        ? "border-[#00A3FF] bg-[#001A29] text-[#33B5FF]"
+                        : "border-[#262626] bg-[#0D0D0D] text-[#A3A3A3] hover:border-[#404040] hover:text-white"
+                    }`}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
+            </div>
+
+            <label className="flex w-full items-center gap-2 rounded-lg border border-[#262626] bg-[#0D0D0D] px-3 py-2.5 sm:max-w-xs">
+              <span className="text-xs text-[#737373]">Search</span>
+              <input
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Find an achievement..."
+                className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-[#737373]"
+              />
+            </label>
+          </div>
+
+          {filteredAchievements.length > 0 ? (
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {filteredAchievements.map((achievement) => (
+                <AchievementCard
+                  key={achievement.id ?? achievement.title}
+                  achievement={achievement}
+                  index={achievements.indexOf(achievement)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-xl border border-[#262626] bg-[#0D0D0D] px-5 py-12 text-center">
+              <Award className="mx-auto mb-3 text-[#00A3FF]" size={28} />
+              <h3 className="font-semibold text-white">
+                No matching achievements
+              </h3>
+              <p className="mt-2 text-sm text-[#A3A3A3]">
+                Try another category or search term.
+              </p>
+            </div>
+          )}
+        </section>
+
+        {/* Technical domains */}
+        <section id="domains" className="mt-20 scroll-mt-24 sm:mt-28">
+          <SectionHeading
+            eyebrow="Explore Our Domains"
+            title="Where Ideas Take Shape"
+            description="DSSA encourages exploration across software, hardware, artificial intelligence, data, research, and collaborative innovation."
+          />
+
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {domains.map((domain) => (
+              <DomainCard key={domain.id} domain={domain} />
+            ))}
+          </div>
+        </section>
+
+        {/* Culture and mentorship */}
+        <section id="culture" className="mt-20 scroll-mt-24 sm:mt-28">
+          <SectionHeading
+            eyebrow="The DSSA Experience"
+            title="People Behind the Progress"
+            description="Strong technical communities grow through mentorship, curiosity, experimentation, and people who help each other improve."
+          />
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {cultureMessages.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article
+                  key={item.title}
+                  className="group rounded-xl border border-[#262626] bg-[#0D0D0D] p-5 transition-colors hover:border-[#00A3FF]/50 sm:p-6"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#262626] bg-black text-[#00A3FF] transition-colors group-hover:border-[#00A3FF]/40">
+                    <Icon size={19} />
+                  </div>
+
+                  <h3 className="mt-4 font-bold text-white">{item.title}</h3>
+
+                  <p className="mt-2 text-sm leading-7 text-[#A3A3A3]">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-5 border-t border-[#262626] pt-4 text-xs text-[#737373]">
+                    DSSA · Learn and grow
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-4 rounded-xl border border-[#262626] bg-[#0D0D0D] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div>
-              <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
-                <span className="h-px w-8 bg-gradient-to-r from-cyan-300 to-blue-400" />
-                Our Journey · Our Pride
-              </div>
-
-              <div className="relative inline-block">
-                <h2 className="relative text-4xl font-black leading-tight tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                  <span className="text-white">Achievement</span>{" "}
-                  <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                    Wall
-                  </span>
-                </h2>
-
-                <div className="mt-3 flex items-center gap-2">
-                  <span className="h-[3px] w-14 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.6)]" />
-                  <span className="h-[3px] w-7 rounded-full bg-blue-400/80" />
-                  <span className="h-[3px] w-3 rounded-full bg-violet-400/80" />
-                </div>
-              </div>
-
-              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
-                A showcase of our proudest moments, creative minds,
-                groundbreaking ideas, and accomplishments worth celebrating.
+              <p className="text-xs font-mono uppercase tracking-widest text-[#00A3FF]">
+                Keep Exploring
+              </p>
+              <h3 className="mt-2 text-xl font-bold text-white">
+                Curiosity is where innovation begins.
+              </h3>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-[#A3A3A3]">
+                Discover more of the DSSA community through its events,
+                people, learning opportunities, and shared experiences.
               </p>
             </div>
 
-            <div className="relative w-full lg:max-w-sm">
-              <Search
-                size={18}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
-              />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search achievements..."
-                aria-label="Search achievements"
-                className="w-full rounded-xl border border-white/10 bg-white/[0.04] py-3.5 pl-11 pr-4 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/10"
-              />
-            </div>
-          </div>
-
-          {/* Category filters */}
-          <div className="flex flex-wrap items-center gap-2">
-            {categories.map((category) => {
-              const isActive = activeCategory === category;
-
-              return (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() => setActiveCategory(category)}
-                  className={`rounded-xl border px-4 py-2.5 text-sm font-medium transition duration-200 ${
-                    isActive
-                      ? "border-cyan-300/50 bg-cyan-300/10 text-cyan-200 shadow-[0_0_22px_rgba(34,211,238,0.08)]"
-                      : "border-white/10 bg-white/[0.025] text-slate-400 hover:border-white/20 hover:text-white"
-                  }`}
-                >
-                  {category}
-                </button>
-              );
-            })}
-
-            <span className="ml-auto self-center text-xs text-slate-500">
-              Showing {filteredAchievements.length}{" "}
-              {filteredAchievements.length === 1
-                ? "achievement"
-                : "achievements"}
-            </span>
-          </div>
-        </section>
-
-        {/* Achievement cards */}
-        <section className="space-y-8">
-          {filteredAchievements.map((achievement) => {
-            const originalIndex = achievements.indexOf(achievement);
-            const images = achievement.images || [];
-            const currentImageIndex = slideIndexes[originalIndex] || 0;
-            const currentImage = images[currentImageIndex];
-
-            return (
-              <article
-                key={`${achievement.title}-${originalIndex}`}
-                className="group relative rounded-[26px] p-[1px] transition duration-500 hover:-translate-y-1"
-                style={{
-                  background:
-                    "linear-gradient(120deg, rgba(34,211,238,0.65), rgba(99,102,241,0.4), rgba(217,70,239,0.55), rgba(34,211,238,0.35))",
-                  backgroundSize: "250% 250%",
-                  animation: "achievementBorderFlow 8s ease infinite",
-                }}
-              >
-                <div className="rounded-[25px] bg-[#080d20]/95 p-3 sm:p-5 lg:p-6">
-                  <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-7">
-                    {/* Large image section */}
-                    <div className="min-w-0">
-                      <div className="relative h-[300px] overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-[0_0_35px_rgba(34,211,238,0.10)] sm:h-[380px] lg:h-full lg:min-h-[420px]">
-                        {currentImage ? (
-                          <>
-                            <img
-                              src={currentImage}
-                              alt={achievement.title}
-                              className="h-full w-full cursor-zoom-in object-cover transition duration-700 group-hover:scale-[1.025]"
-                              onClick={() =>
-                                openGallery(achievement, currentImageIndex)
-                              }
-                            />
-
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10" />
-
-                            <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/50 px-3 py-1.5 text-xs font-semibold text-white shadow-lg backdrop-blur-xl">
-                              {achievement.category || "Achievement"}
-                            </span>
-
-                            {images.length > 1 && (
-                              <>
-                                <button
-                                  type="button"
-                                  aria-label="Previous image"
-                                  onClick={() =>
-                                    setSlideIndexes((previous) => ({
-                                      ...previous,
-                                      [originalIndex]:
-                                        (currentImageIndex -
-                                          1 +
-                                          images.length) %
-                                        images.length,
-                                    }))
-                                  }
-                                  className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/45 text-white backdrop-blur-md transition hover:bg-cyan-400/30"
-                                >
-                                  <ChevronLeft size={21} />
-                                </button>
-
-                                <button
-                                  type="button"
-                                  aria-label="Next image"
-                                  onClick={() =>
-                                    setSlideIndexes((previous) => ({
-                                      ...previous,
-                                      [originalIndex]:
-                                        (currentImageIndex + 1) %
-                                        images.length,
-                                    }))
-                                  }
-                                  className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/45 text-white backdrop-blur-md transition hover:bg-cyan-400/30"
-                                >
-                                  <ChevronRight size={21} />
-                                </button>
-
-                                <div className="absolute bottom-4 left-4 flex items-center gap-1.5">
-                                  {images.map((_, imageIndex) => (
-                                    <button
-                                      key={imageIndex}
-                                      type="button"
-                                      aria-label={`Show image ${imageIndex + 1}`}
-                                      onClick={() =>
-                                        setSlideIndexes((previous) => ({
-                                          ...previous,
-                                          [originalIndex]: imageIndex,
-                                        }))
-                                      }
-                                      className={`h-1.5 rounded-full transition-all ${
-                                        imageIndex === currentImageIndex
-                                          ? "w-7 bg-cyan-300"
-                                          : "w-2 bg-white/60 hover:bg-white"
-                                      }`}
-                                    />
-                                  ))}
-                                </div>
-                              </>
-                            )}
-
-                            <button
-                              type="button"
-                              onClick={() =>
-                                openGallery(achievement, currentImageIndex)
-                              }
-                              className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-lg border border-white/20 bg-black/50 px-3 py-2 text-xs font-medium text-white backdrop-blur-md transition hover:border-cyan-300/50 hover:bg-black/70"
-                            >
-                              <Images size={15} />
-                              View gallery
-                            </button>
-                          </>
-                        ) : (
-                          <div className="flex h-full min-h-[300px] flex-col items-center justify-center gap-3 text-slate-500">
-                            <Images size={42} strokeWidth={1.2} />
-                            <span className="text-sm">
-                              No images available
-                            </span>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Image thumbnails */}
-                      {images.length > 1 && (
-                        <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-                          {images.map((image, imageIndex) => (
-                            <button
-                              key={`${image}-${imageIndex}`}
-                              type="button"
-                              onClick={() =>
-                                setSlideIndexes((previous) => ({
-                                  ...previous,
-                                  [originalIndex]: imageIndex,
-                                }))
-                              }
-                              className={`h-[66px] w-[88px] shrink-0 overflow-hidden rounded-lg border-2 transition sm:h-[76px] sm:w-[104px] ${
-                                currentImageIndex === imageIndex
-                                  ? "border-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.18)]"
-                                  : "border-white/10 opacity-65 hover:border-white/40 hover:opacity-100"
-                              }`}
-                            >
-                              <img
-                                src={image}
-                                alt={`${achievement.title} thumbnail ${imageIndex + 1}`}
-                                className="h-full w-full object-cover"
-                              />
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Achievement details */}
-                    <div className="flex min-w-0 flex-col justify-center py-2 sm:px-1 lg:py-5 lg:pl-1">
-                      <div className="mb-4 flex flex-wrap items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-300/20 bg-violet-300/[0.07] px-3 py-1.5 text-xs font-medium text-violet-200">
-                          <Award size={14} />
-                          Department highlight
-                        </span>
-
-                        {images.length > 0 && (
-                          <span className="inline-flex items-center gap-1.5 text-xs text-slate-500">
-                            <Images size={14} />
-                            {images.length}{" "}
-                            {images.length === 1 ? "image" : "images"}
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="text-2xl font-bold leading-snug tracking-tight text-white transition group-hover:text-cyan-100 sm:text-3xl">
-                        {achievement.title}
-                      </h3>
-
-                      <div className="mt-4 h-[2px] w-20 rounded-full bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-400" />
-
-                      <p className="mt-5 text-sm leading-7 text-slate-400 sm:text-base sm:leading-8">
-                        {achievement.description}
-                      </p>
-
-                      {achievement.highlights?.length > 0 && (
-                        <div className="mt-6">
-                          <h4 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">
-                            Highlights
-                          </h4>
-
-                          <ul className="space-y-3">
-                            {achievement.highlights.map(
-                              (highlight, highlightIndex) => (
-                                <li
-                                  key={`${highlight}-${highlightIndex}`}
-                                  className="flex items-start gap-3 text-sm leading-6 text-slate-400"
-                                >
-                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300 shadow-[0_0_9px_rgba(34,211,238,0.65)]" />
-                                  <span>{highlight}</span>
-                                </li>
-                              )
-                            )}
-                          </ul>
-                        </div>
-                      )}
-
-                      <div className="mt-7 flex flex-wrap items-center gap-3 border-t border-white/[0.08] pt-5">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            openGallery(achievement, currentImageIndex)
-                          }
-                          disabled={!images.length}
-                          className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/25 bg-cyan-300/[0.07] px-4 py-3 text-sm font-semibold text-cyan-200 transition hover:border-cyan-300/50 hover:bg-cyan-300/15 disabled:cursor-not-allowed disabled:opacity-40"
-                        >
-                          <Images size={16} />
-                          Explore photos
-                          <ExternalLink size={14} />
-                        </button>
-
-                        <span className="inline-flex items-center gap-2 text-xs text-slate-500">
-                          <Sparkles size={14} />
-                          Innovation in action
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </section>
-
-        {/* Empty state */}
-        {filteredAchievements.length === 0 && (
-          <div className="rounded-3xl border border-dashed border-white/15 bg-white/[0.025] px-5 py-16 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/[0.06] text-cyan-200">
-              <Search size={27} />
-            </div>
-
-            <h3 className="mt-5 text-xl font-bold">
-              No achievements found
-            </h3>
-
-            <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-400">
-              Try another search term or select a different category.
-            </p>
-
-            <button
-              type="button"
-              onClick={() => {
-                setSearchQuery("");
-                setActiveCategory("All");
-              }}
-              className="mt-6 rounded-xl border border-cyan-300/30 bg-cyan-300/10 px-5 py-3 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-300/15"
+            <a
+              href="/events"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-[#262626] bg-white px-4 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#E5E5E5]"
             >
-              Clear filters
-            </button>
+              Explore Events
+              <ArrowUpRight size={16} />
+            </a>
           </div>
-        )}
-
-        {/* Footer */}
-        <footer className="mt-16 border-t border-white/[0.08] pt-7 text-center">
-          <p className="text-sm font-medium text-slate-400">
-            CSE — Data Science Department
-          </p>
-          <p className="mt-2 text-xs text-slate-600">
-            Every achievement is part of our story.
-          </p>
-        </footer>
+        </section>
       </div>
-
-      {/* Full-screen image gallery */}
-      {activeGallery && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${activeGallery.title} photo gallery`}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#02040b]/95 p-3 backdrop-blur-xl sm:p-6"
-          onClick={() => setActiveGallery(null)}
-        >
-          <div
-            className="relative flex max-h-[94vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#080d1b] shadow-[0_0_80px_rgba(34,211,238,0.08)] sm:rounded-3xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-4 sm:px-6">
-              <div className="min-w-0">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-300 sm:text-xs">
-                  Achievement gallery
-                </p>
-                <h3 className="mt-1 truncate text-base font-bold text-white sm:text-xl">
-                  {activeGallery.title}
-                </h3>
-              </div>
-
-              <button
-                type="button"
-                aria-label="Close gallery"
-                onClick={() => setActiveGallery(null)}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] text-slate-300 transition hover:border-rose-300/40 hover:bg-rose-300/10 hover:text-white"
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            <div className="relative flex min-h-0 flex-1 items-center justify-center p-3 sm:p-6">
-              <img
-                src={activeGallery.images[activeGallery.index]}
-                alt={`${activeGallery.title} image ${activeGallery.index + 1}`}
-                className="max-h-[64vh] max-w-full rounded-xl object-contain sm:max-h-[68vh]"
-              />
-
-              {activeGallery.images.length > 1 && (
-                <>
-                  <button
-                    type="button"
-                    aria-label="Previous gallery image"
-                    onClick={() => changeGalleryImage(-1)}
-                    className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/60 text-white backdrop-blur-md transition hover:border-cyan-300/40 hover:bg-cyan-300/15 sm:left-6 sm:h-12 sm:w-12"
-                  >
-                    <ArrowLeft size={20} />
-                  </button>
-
-                  <button
-                    type="button"
-                    aria-label="Next gallery image"
-                    onClick={() => changeGalleryImage(1)}
-                    className="absolute right-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/60 text-white backdrop-blur-md transition hover:border-cyan-300/40 hover:bg-cyan-300/15 sm:right-6 sm:h-12 sm:w-12"
-                  >
-                    <ArrowRight size={20} />
-                  </button>
-                </>
-              )}
-            </div>
-
-            <div className="border-t border-white/10 px-4 py-4 sm:px-6">
-              <div className="flex items-center justify-between gap-3">
-                <span className="text-xs text-slate-400 sm:text-sm">
-                  Image {activeGallery.index + 1} of{" "}
-                  {activeGallery.images.length}
-                </span>
-
-                <span className="text-xs text-slate-500">
-                  ← → Navigate · Esc to close
-                </span>
-              </div>
-
-              {activeGallery.images.length > 1 && (
-                <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-                  {activeGallery.images.map((image, index) => (
-                    <button
-                      key={`${image}-${index}`}
-                      type="button"
-                      aria-label={`Open gallery image ${index + 1}`}
-                      onClick={() =>
-                        setActiveGallery((current) => ({
-                          ...current,
-                          index,
-                        }))
-                      }
-                      className={`h-14 w-20 shrink-0 overflow-hidden rounded-lg border-2 transition sm:h-16 sm:w-24 ${
-                        activeGallery.index === index
-                          ? "border-cyan-300 opacity-100"
-                          : "border-white/10 opacity-50 hover:opacity-100"
-                      }`}
-                    >
-                      <img
-                        src={image}
-                        alt=""
-                        className="h-full w-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      <style jsx global>{`
-        @keyframes achievementBorderFlow {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-
-        html {
-          scroll-behavior: smooth;
-        }
-      `}</style>
     </main>
   );
 }
