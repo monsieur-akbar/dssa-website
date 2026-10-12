@@ -31,7 +31,7 @@
         {
           "name": "Aditi Kadam",
           "role": "Secretary",
-          "photo": null,
+          "photo": "/images/team/core/aditi.png",
           "linkedin": "https://www.linkedin.com/in/aditi-kadam-a491b8332/",
           "github": "https://github.com"
         },
@@ -50,7 +50,7 @@
           "github": "https://github.com"
         },
         {
-          "name": "Aryan Faing",
+          "name": "Aryan Fating",
           "role": "Event Coordinator",
           "photo": null,
           "linkedin": "https://www.linkedin.com/in/aryan-fating-41a0b8380/",
@@ -107,7 +107,7 @@
         },
         {
           "name": "Mahesh Chavan",
-          "role": "Web Developer",
+          "role": "Coordinator",
           "photo": "/images/team/technical/coordinators/Mahesh_Chavan_Technical_Coord.png",
           "linkedin": null,
           "github": "https://github.com"
