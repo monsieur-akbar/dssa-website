@@ -1,0 +1,114 @@
+{
+  "vision": {
+    "title": "Our Vision",
+    "text": "A campus where every student can learn data science by doing, and graduate ready to turn data into decisions that matter."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "text": "Run hands-on workshops, project teams and competitions that take students from their first notebook to shipped work, and connect them with mentors, peers and opportunities."
+  },
+  "objectives": [
+    {
+      "icon": "graduation",
+      "title": "Hands-on learning",
+      "description": "Workshops and study tracks covering Python, statistics, machine learning and data engineering."
+    },
+    {
+      "icon": "code",
+      "title": "Real projects",
+      "description": "Student teams that build and ship data and ML projects beyond coursework."
+    },
+    {
+      "icon": "trophy",
+      "title": "Competitions",
+      "description": "Prepare and send teams to hackathons and data challenges."
+    },
+    {
+      "icon": "users",
+      "title": "Peer community",
+      "description": "A welcoming space for first-years to final-years to learn together."
+    },
+    {
+      "icon": "lightbulb",
+      "title": "Mentorship",
+      "description": "Guidance from faculty and seniors on projects, research and careers."
+    },
+    {
+      "icon": "briefcase",
+      "title": "Opportunities",
+      "description": "Internships, research openings and industry exposure shared with members."
+    }
+  ],
+  "specialPillars": [
+    {
+      "id": "learn-by-doing",
+      "tag": "PILLAR // 01",
+      "title": "Learn by Doing",
+      "subtitle": "Practical exploration over theory alone",
+      "description": "We bridge the gap between classroom concepts and production engineering. Students get hands-on with real-world datasets, reproducible notebooks, and end-to-end machine learning workflows.",
+      "points": [
+        "Hands-on workshops covering Python, statistics, and machine learning",
+        "Building beyond coursework with real tools like PyTorch and FastAPI",
+        "Code walkthroughs and reproducible project architectures"
+      ]
+    },
+    {
+      "id": "community-collaboration",
+      "tag": "PILLAR // 02",
+      "title": "Collaborative Peer Community",
+      "subtitle": "Inclusive multi-year knowledge sharing",
+      "description": "Learning is accelerated when done together. DSSA provides a welcoming space where first-years to final-years collaborate, exchange feedback, and tackle challenges as a cohesive team.",
+      "points": [
+        "Welcoming environment connecting first-years with senior peers",
+        "Cross-functional collaboration across ML, development, and design pods",
+        "Open peer reviews and collective problem-solving sessions"
+      ]
+    },
+    {
+      "id": "innovation-opportunities",
+      "tag": "PILLAR // 03",
+      "title": "Innovation & Hackathons",
+      "subtitle": "Testing skills in competitive environments",
+      "description": "We empower members to put their skills to the test in competitive arenas, organizing flagship hackathons like DataStorm and preparing student pods for national datathons and technical challenges.",
+      "points": [
+        "Dedicated student pods formed for inter-college hackathons",
+        "Flagship hackathons and intensive domain bootcamps on campus",
+        "Practical experience building working prototypes under real constraints"
+      ]
+    },
+    {
+      "id": "mentorship-growth",
+      "tag": "PILLAR // 04",
+      "title": "Mentorship & Growth",
+      "subtitle": "From first notebook to shipped impact",
+      "description": "With guidance from faculty advisors and experienced seniors, members gain the technical rigor, project portfolios, and professional exposure needed for research and career milestones.",
+      "points": [
+        "Faculty mentorship and research guidance from academic leads",
+        "Industry-aligned technical sessions and domain roadmaps",
+        "Portfolio-grade projects ready for research and internships"
+      ]
+    }
+  ],
+  "studentJourney": [
+    {
+      "step": "01",
+      "phase": "Explore & Onboard",
+      "summary": "Attend beginner-friendly sessions, build solid foundations in Python, statistics, and data exploration, and join our active student community."
+    },
+    {
+      "step": "02",
+      "phase": "Build & Collaborate",
+      "summary": "Join specialized student pods, collaborate on real-world projects beyond coursework, and learn best practices in model training and deployment."
+    },
+    {
+      "step": "03",
+      "phase": "Compete & Showcase",
+      "summary": "Participate in national hackathons and datathons, showcase project demos to peers and faculty, and contribute to technical research."
+    },
+    {
+      "step": "04",
+      "phase": "Lead & Empower",
+      "summary": "Step into coordinator and leadership roles, mentor incoming juniors, lead technical workshops, and expand DSSA's collaborative footprint."
+    }
+  ]
+}

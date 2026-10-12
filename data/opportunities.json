@@ -1,1 +1,127 @@
-[]
+[
+  {
+    "id": "opp-ai-ml-01",
+    "track": "AI & Machine Learning",
+    "role": "Machine Learning Research Associate",
+    "type": "Technical Track",
+    "openings": 6,
+    "eligibility": "FY, SY, TY B.Tech (All Branches with strong programming background)",
+    "description": "Design, train, and benchmark neural network models, explore transformer architectures, and contribute to published research papers and national AI hackathons.",
+    "requirements": [
+      "Solid foundation in Python, NumPy, Pandas, and PyTorch or TensorFlow",
+      "Understanding of fundamental ML algorithms (Regression, Trees, CNNs, Transformers)",
+      "Curiosity for reading AI research papers (arXiv) and reproducing experiments",
+      "Familiarity with Git/GitHub workflows"
+    ],
+    "responsibilities": [
+      "Build production-grade AI prototypes for DSSA flagship projects",
+      "Conduct code reviews and internal tech walkthroughs",
+      "Represent DSSA in national/international hackathons and datathons"
+    ],
+    "perks": [
+      "Direct mentorship from senior researchers and industry ML leads",
+      "Compute cluster and GPU credit grants for approved research",
+      "Co-authorship on conference/journal research papers"
+    ]
+  },
+  {
+    "id": "opp-dev-02",
+    "track": "Full-Stack & Systems",
+    "role": "Full-Stack Platform Developer",
+    "type": "Technical Track",
+    "openings": 4,
+    "eligibility": "FY, SY, TY B.Tech",
+    "description": "Architect responsive web portals, scalable REST/GraphQL APIs, database backends, and internal dev-tooling for DSSA events and competitions.",
+    "requirements": [
+      "Proficiency in React, Next.js, TypeScript/JavaScript, and Tailwind CSS",
+      "Experience with backend frameworks (Node.js/Express, FastAPI, or Django)",
+      "Knowledge of relational (PostgreSQL) or document databases (MongoDB)",
+      "Understanding of Docker containerization and cloud deployment basics"
+    ],
+    "responsibilities": [
+      "Maintain and expand official DSSA portals, portals for DataStorm hackathon",
+      "Deploy real-time dashboards and interactive 3D/WebGL experiences",
+      "Integrate secure authentication, payment, and submission workflows"
+    ],
+    "perks": [
+      "Experience building high-traffic web applications used by 5,000+ students",
+      "Portfolio-ready open source projects",
+      "Priority recommendation for tech internships"
+    ]
+  },
+  {
+    "id": "opp-design-03",
+    "track": "UI/UX & Creative Media",
+    "role": "Design & Visual Identity Lead",
+    "type": "Creative Track",
+    "openings": 3,
+    "eligibility": "FY, SY, TY (Open to all streams)",
+    "description": "Shape the visual language of DSSA through sleek modern web mockups, branding guidelines, 3D assets, event posters, and motion graphics.",
+    "requirements": [
+      "High proficiency in Figma, Adobe Illustrator, Photoshop, or Blender",
+      "Strong understanding of typography, color harmony, and cybernetic/modern aesthetics",
+      "Portfolio of UI designs, graphic art, or motion design projects",
+      "Ability to translate technical concepts into clean infographic visuals"
+    ],
+    "responsibilities": [
+      "Design web and mobile user interfaces for DSSA web products",
+      "Create high-impact social media creatives, hackathon banners, and merchandise",
+      "Collaborate with developers to ensure pixel-perfect UI execution"
+    ],
+    "perks": [
+      "Complete creative freedom on club branding and digital media",
+      "Featured design credits across all club releases and merchandise",
+      "Access to premium design tools and asset libraries"
+    ]
+  },
+  {
+    "id": "opp-ops-04",
+    "track": "Operations & Event Management",
+    "role": "Operations & Logistics Coordinator",
+    "type": "Management Track",
+    "openings": 5,
+    "eligibility": "FY, SY, TY",
+    "description": "Lead end-to-end execution of national hackathons, technical speaker sessions, industrial visits, and on-campus workshop logistics.",
+    "requirements": [
+      "Excellent communication, leadership, and crisis-management skills",
+      "Ability to multitask and coordinate across vendors, faculty, and student teams",
+      "Prior experience in organizing school or college events is a plus",
+      "Hands-on with Google Workspace, spreadsheets, and ticketing platforms"
+    ],
+    "responsibilities": [
+      "Manage venue scheduling, lab setups, and hardware logistics for events",
+      "Coordinate attendee registration, check-ins, and hospitality",
+      "Liaise with college administration and departmental coordinators"
+    ],
+    "perks": [
+      "Direct exposure to leadership, budget management, and vendor negotiations",
+      "Exclusive networking with visiting industry executives and judges",
+      "Letters of recommendation and leadership certification"
+    ]
+  },
+  {
+    "id": "opp-outreach-05",
+    "track": "Public Relations & Content",
+    "role": "Content Strategist & PR Associate",
+    "type": "Outreach Track",
+    "openings": 4,
+    "eligibility": "FY, SY, TY",
+    "description": "Author engaging technical newsletters, manage DSSA's social footprint (LinkedIn, Instagram, X), and establish strategic corporate sponsorships.",
+    "requirements": [
+      "Strong technical writing and storytelling skills",
+      "Understanding of social media algorithms, growth strategies, and analytics",
+      "Professional email correspondence and outreach communication",
+      "Interest in demystifying AI and Data Science concepts for a broad audience"
+    ],
+    "responsibilities": [
+      "Write weekly technical articles, event announcements, and project spotlights",
+      "Drive sponsor outreach campaigns for annual flagship hackathons",
+      "Engage with the student community and alumni network"
+    ],
+    "perks": [
+      "Direct connections with tech recruiters, founders, and industry sponsors",
+      "Build a recognizable personal brand in the tech and data community",
+      "Leadership roles in external partner relations"
+    ]
+  }
+]

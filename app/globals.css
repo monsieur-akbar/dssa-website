@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+:root {
+  /* Brand Accents */
+  --dssa-brand-primary: #00A3FF;
+  --dssa-brand-hover: #0082CC;
+  --dssa-brand-subtle: #001A29;
+  --dssa-brand-highlight: #33B5FF;
+
+  /* Surfaces */
+  --dssa-surface-ground: #000000;
+  --dssa-surface-panel: #0D0D0D;
+  --dssa-surface-elevated: #1A1A1A;
+
+  /* Borders */
+  --dssa-border-subtle: #262626;
+  --dssa-border-strong: #404040;
+
+  /* Typography */
+  --dssa-text-primary: #FFFFFF;
+  --dssa-text-secondary: #A3A3A3;
+  --dssa-text-muted: #737373;
+
+  /* Semantics */
+  --dssa-status-success: #10b981;
+  --dssa-status-warning: #f59e0b;
+  --dssa-status-error: #ef4444;
+}
+
+@theme {
+  --color-brand-primary: #00A3FF;
+  --color-brand-hover: #0082CC;
+  --color-brand-subtle: #001A29;
+  --color-brand-highlight: #33B5FF;
+
+  --color-surface-ground: #000000;
+  --color-surface-panel: #0D0D0D;
+  --color-surface-elevated: #1A1A1A;
+
+  --color-border-subtle: #262626;
+  --color-border-strong: #404040;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A3A3A3;
+  --color-text-muted: #737373;
+}
+
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+::selection {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+::-moz-selection {
+  background-color: #FFFFFF;
+  color: #000000;
+}
