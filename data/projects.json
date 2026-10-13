@@ -1,87 +1,218 @@
-[
-  {
-    "id": "proj-01",
-    "title": "NeuroPulse: Edge Health Telemetry & Anomaly Detection",
-    "category": "Edge AI / Healthcare",
-    "summary": "Real-time edge computing system utilizing 1D-CNN and LSTM networks to detect cardiac arrhythmias and anomalous physiological patterns from wearable PPG sensor streams.",
-    "techStack": ["PyTorch", "FastAPI", "TensorRT", "Next.js", "Tailwind CSS", "MQTT", "Docker"],
-    "status": "Active",
-    "featured": true,
-    "github": "https://github.com/dssa-vit/neuropulse-edge",
-    "demo": "https://neuropulse.dssavit.org",
-    "metrics": {
-      "stars": 128,
-      "accuracy": "98.4%",
-      "latency": "< 12ms"
+{
+  "featuredImages": [
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=85",
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=85",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85",
+    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85"
+  ],
+  "innovationAreas": [
+    {
+      "id": "software",
+      "title": "Software Projects",
+      "eyebrow": "Building Digital Experiences",
+      "description": "Our department encourages students to transform ideas into useful digital experiences. With a strong foundation in programming, modern development tools and collaborative learning, students are encouraged to think creatively, build practical skills and develop solutions for real-world needs.",
+      "domainMessage": "From web development and application design to databases, cloud technologies and software engineering, students explore the technologies shaping the digital world.",
+      "facultyMessage": "Faculty guidance helps students strengthen their fundamentals, approach problems systematically and grow from classroom concepts into confident developers.",
+      "tags": [
+        "Web Development",
+        "Application Development",
+        "Software Engineering",
+        "Cloud Technologies"
+      ],
+      "accent": "cyan",
+      "localImages": [
+        "/achivement/software-1.jpg",
+        "/achivement/software-2.jpg"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85"
+      ]
     },
-    "leads": ["Rohan Kulkarni", "Tanvi Patel"]
-  },
-  {
-    "id": "proj-02",
-    "title": "Aether-RAG: Multimodal Campus Intelligence Engine",
-    "category": "Generative AI / Knowledge Systems",
-    "summary": "An enterprise-grade hybrid retrieval-augmented generation engine indexing 10,000+ academic papers, course syllabi, and administrative documents for VIT Pune students.",
-    "techStack": ["Python", "LangChain", "Milvus Vector DB", "Llama-3-70B", "FastAPI", "React"],
-    "status": "Active",
-    "featured": true,
-    "github": "https://github.com/dssa-vit/aether-rag-engine",
-    "demo": "https://aether.dssavit.org",
-    "metrics": {
-      "stars": 245,
-      "queriesServed": "50K+",
-      "indexingLatency": "1.2s"
+    {
+      "id": "hardware",
+      "title": "Hardware Projects",
+      "eyebrow": "Ideas You Can Build",
+      "description": "Hands-on exploration encourages students to understand how technology works beyond the screen. Through practical experimentation, circuit-level thinking and prototype development, the department supports curiosity, technical confidence and learning through experience.",
+      "domainMessage": "Electronics, digital systems, microcontrollers, embedded systems and circuit design help students connect theoretical knowledge with physical computing.",
+      "facultyMessage": "Mentorship and practical learning help students approach technical challenges carefully, test their ideas and understand the value of precision, patience and teamwork.",
+      "tags": [
+        "Electronics",
+        "Embedded Systems",
+        "Circuit Design",
+        "Prototyping"
+      ],
+      "accent": "violet",
+      "localImages": [
+        "/achivement/hardware-1.jpg",
+        "/achivement/hardware-2.jpg"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1400&q=85"
+      ]
     },
-    "leads": ["Ananya Joshi", "Aarav Sharma"]
-  },
-  {
-    "id": "proj-03",
-    "title": "VisionFlow: Autonomous Traffic & Infrastructure Analytics",
-    "category": "Computer Vision",
-    "summary": "Scalable urban mobility surveillance framework with automated vehicle tracking, lane violation detection, and real-time congestion heatmapping using YOLOv11 and DeepSORT.",
-    "techStack": ["YOLOv11", "DeepSORT", "OpenCV", "Flask", "PostgreSQL", "Grafana"],
-    "status": "Completed",
-    "featured": false,
-    "github": "https://github.com/dssa-vit/visionflow-traffic",
-    "demo": "https://visionflow.dssavit.org",
-    "metrics": {
-      "stars": 94,
-      "fps": "45 FPS on RTX 4060",
-      "precision": "96.2% mAP"
+    {
+      "id": "ai-ml",
+      "title": "AI & ML Projects",
+      "eyebrow": "Intelligence Through Data",
+      "description": "The department promotes analytical thinking and exploration of intelligent technologies. Students are encouraged to understand data, investigate patterns, experiment with algorithms and explore how computing can support better decisions and innovative solutions.",
+      "domainMessage": "Artificial intelligence, machine learning, data analytics, computer vision and natural language processing open opportunities to explore intelligent systems.",
+      "facultyMessage": "Conceptual guidance and experimentation help students build a responsible, curious and evidence-driven approach to emerging technologies.",
+      "tags": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Data Analytics",
+        "Computer Vision"
+      ],
+      "accent": "blue",
+      "localImages": [
+        "/achivement/ai-ml-1.jpg",
+        "/achivement/ai-ml-2.jpg"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+      ]
     },
-    "leads": ["Siddharth Verma", "Ishan Deshpande"]
-  },
-  {
-    "id": "proj-04",
-    "title": "AlphaStream: High-Throughput Financial Backtester",
-    "category": "Quant / Systems",
-    "summary": "Low-latency algorithmic backtesting engine written in Rust and Python with support for order-book simulation, risk parity attribution, and automated strategy optimization.",
-    "techStack": ["Rust", "Python", "Polars", "Ray", "TimescaleDB", "React"],
-    "status": "Active",
-    "featured": false,
-    "github": "https://github.com/dssa-vit/alphastream-quant",
-    "demo": "https://alphastream.dssavit.org",
-    "metrics": {
-      "stars": 182,
-      "throughput": "1.5M ticks/sec",
-      "sharpeRatio": "2.4 Benchmark"
+    {
+      "id": "research",
+      "title": "Research Culture",
+      "eyebrow": "Explore Beyond the Classroom",
+      "description": "Research encourages students to ask meaningful questions, investigate existing knowledge and explore new possibilities. The department provides an environment where curiosity, critical thinking, experimentation and continuous learning can support academic and technical growth.",
+      "domainMessage": "Literature surveys, data analysis, experimental evaluation, technical documentation and interdisciplinary exploration help students develop research skills.",
+      "facultyMessage": "Faculty mentorship can guide students through refining research questions, evaluating evidence, presenting findings and preparing quality research manuscripts for suitable publication opportunities.",
+      "tags": [
+        "Literature Surveys",
+        "Experimental Research",
+        "Technical Writing",
+        "Research Publications"
+      ],
+      "accent": "fuchsia",
+      "localImages": [
+        "/achivement/research-1.jpg",
+        "/achivement/research-2.jpg"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+      ]
+    }
+  ],
+  "cultureMessages": [
+    {
+      "title": "A Department That Encourages Curiosity",
+      "description": "A learning environment where questions are welcomed, new ideas are explored and students are encouraged to keep improving."
     },
-    "leads": ["Arjun Mehta", "Aarav Sharma"]
-  },
-  {
-    "id": "proj-05",
-    "title": "DataSphere: Open Academic Dataset Exchange",
-    "category": "Web / Open Data",
-    "summary": "Decentralized, version-controlled open data repository platform allowing student researchers to publish, cite, and benchmark local dataset splits with automated SHA-256 validation.",
-    "techStack": ["Next.js", "Node.js", "IPFS", "Prisma", "PostgreSQL", "Tailwind CSS"],
-    "status": "In Development",
-    "featured": false,
-    "github": "https://github.com/dssa-vit/datasphere-registry",
-    "demo": "https://datasphere.dssavit.org",
-    "metrics": {
-      "stars": 76,
-      "datasets": "120+ Hosted",
-      "downloads": "15K+"
+    {
+      "title": "Faculty Who Guide Growth",
+      "description": "Supportive academic mentorship helps students strengthen their fundamentals, approach challenges and discover new opportunities."
     },
-    "leads": ["Tanvi Patel", "Sanya Kapoor"]
-  }
-]
+    {
+      "title": "A Club That Builds Together",
+      "description": "A collaborative technical community where members can share knowledge, learn from peers and grow through collective effort."
+    },
+    {
+      "title": "Learning Beyond the Classroom",
+      "description": "Technical activities, discussions and hands-on exploration encourage students to turn knowledge into confidence and experience."
+    },
+    {
+      "title": "Creativity Meets Collaboration",
+      "description": "Different perspectives and shared enthusiasm create space for fresh ideas, experimentation and continuous improvement."
+    },
+    {
+      "title": "Growing With Emerging Technology",
+      "description": "Students are encouraged to stay curious, explore evolving technologies and develop skills for a changing technical landscape."
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Smart Cold Storage Monitoring System",
+      "domain": "AI/ML",
+      "description": "An intelligent monitoring concept that combines sensor readings and connected technology to support the monitoring of storage conditions.",
+      "technologies": [
+        "Python",
+        "IoT",
+        "ESP32",
+        "Firebase"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 2,
+      "title": "CivicPulse",
+      "domain": "Web Development",
+      "description": "A civic grievance reporting concept designed to help citizens report local issues and follow complaint progress.",
+      "technologies": [
+        "React",
+        "JavaScript",
+        "Data Processing"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 3,
+      "title": "VendorIQ",
+      "domain": "Data Analytics",
+      "description": "A vendor evaluation application that processes uploaded datasets, analyzes supplier information and generates visual reports.",
+      "technologies": [
+        "Python",
+        "Flask",
+        "Pandas",
+        "Matplotlib"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 4,
+      "title": "Emergency Communication Network",
+      "domain": "Web Development",
+      "description": "A network simulation concept focused on communication between emergency services and access to critical resources.",
+      "technologies": [
+        "Cisco Packet Tracer",
+        "Networking",
+        "VLAN",
+        "ACL"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    },
+    {
+      "id": 5,
+      "title": "Data Intelligence Research",
+      "domain": "Research",
+      "description": "An exploration of data-driven methods, analytical techniques and emerging computing applications.",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Statistics",
+        "Data Analysis"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85"
+      ],
+      "github": "https://github.com/",
+      "demo": "https://example.com"
+    }
+  ]
+}
