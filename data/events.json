@@ -1,111 +1,288 @@
-[
-  {
-    "id": "event-01",
-    "title": "DataStorm 2026: National Hackathon",
-    "category": "Hackathon",
-    "date": "2026-11-14",
-    "time": "09:00 AM - 09:00 PM IST (36 Hours)",
-    "location": "Auditorium & Computing Labs, VIT Pune Campus",
-    "mode": "Hybrid",
-    "description": "The flagship national 36-hour data science and AI hackathon bringing together over 500+ student innovators to build production-ready ML systems, agentic workflows, and predictive analytics tools.",
-    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://unstop.com",
-    "status": "Upcoming",
-    "featured": true,
-    "tags": ["AI/ML", "Hackathon", "Predictive Analytics", "Deep Learning"],
-    "speakers": [
-      {
-        "name": "Dr. Aniruddh Joshi",
-        "role": "Head of AI Research, DeepScale Labs"
-      },
-      {
-        "name": "Priya Deshmukh",
-        "role": "Principal Data Scientist, QuantIQ"
-      }
-    ]
-  },
-  {
-    "id": "event-02",
-    "title": "Mastering LLMs & RAG Architectures",
-    "category": "Workshop",
-    "date": "2026-10-25",
-    "time": "02:00 PM - 05:30 PM IST",
-    "location": "Seminar Hall 2, Data Science Dept, VIT Pune",
-    "mode": "In-Person",
-    "description": "A hands-on, code-first masterclass exploring Retrieval-Augmented Generation (RAG), vector embeddings with Milvus/Pinecone, and building autonomous agentic tool loops using modern open-weights models.",
-    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-rag-workshop",
-    "status": "Open",
-    "featured": true,
-    "tags": ["Generative AI", "LLMs", "RAG", "LangChain", "Vector DB"],
-    "speakers": [
-      {
-        "name": "Rohan Kulkarni",
-        "role": "DSSA Technical Lead & AI Researcher"
-      }
-    ]
-  },
-  {
-    "id": "event-03",
-    "title": "Computer Vision & Edge AI Bootcamp",
-    "category": "Bootcamp",
-    "date": "2026-10-02",
-    "time": "10:00 AM - 04:00 PM IST",
-    "location": "Virtual via Google Meet & Discord Live",
-    "mode": "Online",
-    "description": "A comprehensive one-day deep dive into real-time object detection with YOLOv11, TensorRT quantization, and deploying optimized models on low-power edge hardware like Raspberry Pi and Jetson Nano.",
-    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-edge-ai",
-    "status": "Completed",
-    "featured": false,
-    "tags": ["Computer Vision", "Edge AI", "PyTorch", "YOLOv11"],
-    "speakers": [
-      {
-        "name": "Siddharth Verma",
-        "role": "Embedded ML Engineer, TensorCorp"
-      }
-    ]
-  },
-  {
-    "id": "event-04",
-    "title": "Data Engineering at Scale: Kafka & Spark",
-    "category": "Tech Talk",
-    "date": "2026-09-18",
-    "time": "04:00 PM - 06:00 PM IST",
-    "location": "Room 402, IT Building, VIT Pune",
-    "mode": "In-Person",
-    "description": "Industry deep dive into building fault-tolerant distributed streaming pipelines, lakehouse architectures with Apache Iceberg, and processing millions of telemetry events in real-time.",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-data-eng",
-    "status": "Completed",
-    "featured": false,
-    "tags": ["Data Engineering", "Apache Spark", "Kafka", "Lakehouse"],
-    "speakers": [
-      {
-        "name": "Meera Nair",
-        "role": "Senior Data Platform Engineer, StreamLine"
-      }
-    ]
-  },
-  {
-    "id": "event-05",
-    "title": "Algorithmic Trading & Quantitative Finance",
-    "category": "Seminar",
-    "date": "2026-12-05",
-    "time": "11:00 AM - 02:00 PM IST",
-    "location": "Auditorium, VIT Pune",
-    "mode": "In-Person",
-    "description": "Explore stochastic calculus, backtesting trading strategies using Python, volatility modeling with GARCH, and machine learning architectures applied to high-frequency market microstructure.",
-    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
-    "registrationLink": "https://forms.gle/dssa-quant-seminar",
-    "status": "Upcoming",
-    "featured": false,
-    "tags": ["Quant", "Time Series", "Finance", "Python", "Backtesting"],
-    "speakers": [
-      {
-        "name": "Arjun Mehta",
-        "role": "Quantitative Researcher, AlphaEdge Capital"
-      }
-    ]
-  }
-]
+{
+  "heroSlides": [
+    {
+      "id": "hero-01",
+      "slideNumber": "01",
+      "title": "Hackarena'26",
+      "category": "Hackathon",
+      "date": "06/03/2026",
+      "mode": "Offline",
+      "description": "Hackarena was one of our most cherished and successful events. It was a 2 round hackathon held at Kondhwa Campus and was organized by DSSA VIT in collaboration with VICSTA VIT.",
+      "image": "/events/Hackarena_img1.jpeg",
+      "imagePosition": "center 38%",
+      "images": [
+        "/events/Hackarena_img1.jpeg",
+        "/events/Hackarena_img2.jpeg",
+        "/events/Hackarena_img3.jpeg"
+      ]
+    },
+    {
+      "id": "hero-02",
+      "slideNumber": "02",
+      "title": "AgriAi Hackathon",
+      "category": "Hackathon",
+      "date": "17/09/2025",
+      "mode": "Offline",
+      "description": "A challenging hackathon focused on solving real-world problems in agriculture using AI and technology.",
+      "image": "/events/AgriAi_img1.jpg",
+      "imagePosition": "center 50%",
+      "images": [
+        "/events/AgriAi_img1.jpg",
+        "/events/AgriAi_img2.jpg",
+        "/events/AgriAi_img3_copy.jpg"
+      ]
+    },
+    {
+      "id": "hero-03",
+      "slideNumber": "03",
+      "title": "Sparkz Ideathon",
+      "category": "Ideathon",
+      "date": "26/08/2025",
+      "mode": "Offline",
+      "description": "Sparkz, our premier ideathon event, was organized by DSSA VIIT on 26th August 2025. This exciting competition challenged students to think creatively and innovatively, providing a platform for them to showcase their ideas and problem-solving skills.",
+      "image": "/events/sparkz_ideathon_img1.jpg",
+      "imagePosition": "center 55%",
+      "images": [
+        "/events/sparkz_ideathon_img1.jpg",
+        "/events/ideathon_img2.png",
+        "/events/Ideathon_img4.jpg"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-01",
+      "title": " Code Eazz",
+      "category": "Coding Contest",
+      "date": "14/10/2026, Wednesday",
+      "time": "12:00 PM IST Onwards",
+      "location": "D201-Kondhwa Campus",
+      "mode": "Offline",
+      "description": "Showcase your problem-solving skills in our Code Eazz coding contest! Put your logic and efficiency to the test as you race against the clock to solve challenging algorithmic problems. Whether you’re a beginner or an expert, this is your chance to shine, compete, and win exciting prizes. Join us for a fast-paced session of coding, creativity, and friendly competition—it's time to code your way to victory!",
+      "image": "/events/code-eazz.jpg",
+      "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLScd2K70Zs7K_yYauRr1BxI_aA-uWO1gYVdIZTXu_9vr1EDgHg/formResponse",
+      "status": "Upcoming",
+      "featured": false,
+      "tags": [
+        "Data Structures",
+        "Algorithms",
+        "Coding Contest"
+      ],
+      "speakers": [],
+      "prizes": [
+        {
+          "position": "Winner gets awarded with",
+          "reward": "Gift Hamper and Premium Snacks",
+          "details": ""
+        }
+      ],
+      "guidelines": [
+        "It is mandatory for all the participants to bring their own laptops and chargers.",
+        "Ensure your laptop has a minimum of 2 hours of battery life and bring fully charged laptops.",
+        "Participants must be present at the venue at least 15 minutes before the scheduled start time.",
+        "Use of LLMs(Gemini, ChatGPT, Claude etc.) is strictly prohibited.",
+        "No plagiarism — all solutions must be original.",
+        "Decisions of the judges will be final and binding."
+      ],
+      "eligibility": [
+        "Participants must be students of VIT Pune.",
+        "Coding competition is open to Second-Year students belonging to Data Science Department only."
+      ]
+    },
+    {
+      "id": "event-02",
+      "title": "Model Building and Evaluation",
+      "category": "Seminar",
+      "date": "08/10/2026, Thursday",
+      "mode": "Online",
+      "description": "Our Model Building and Evaluation session offered students fundamental insights into machine learning, model development, and assessment. Participants explored the end-to-end pipeline of building predictive models and evaluating their performance using real-world datasets.",
+      "image": "/events/model_evaluation_session_banner.png",
+      "imagePosition": "center 30%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Abhijeet Dada Mote"
+      ]
+    },
+    {
+      "id": "event-03",
+      "title": "API Creation Using Spring Boot",
+      "category": "Seminar",
+      "date": "06/10/2026, Thursday",
+      "mode": "Online",
+      "description": "Participants dived into backend development during our hands-on workshop on creating RESTful APIs using Spring Boot. Attendees learned to design, build, and deploy APIs with one of Java's most popular frameworks, sharpening their programming skills and mastering core backend development principles.",
+      "image": "/events/springboot_seminar_banner.png",
+      "imagePosition": "center 25%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Anuja Jadhav"
+      ]
+    },
+    {
+      "id": "event-04",
+      "title": "GD & PI Preparation Session",
+      "category": "Seminar",
+      "date": "30/09/2026",
+      "mode": "Online",
+      "description": "Tailored for upcoming internships and final placements, this session equipped participants with key skills, confidence, and strategies to ace Group Discussions and Personal Interviews. Attendees mastered techniques for articulation, persuasion, and professional presentation to stand out and maximize every opportunity.",
+      "image": "/events/GD&PI_seminar_banner.png",
+      "imagePosition": "center 30%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Mr. Ramessh Mishra"
+      ]
+    },
+    {
+      "id": "event-05",
+      "title": "From Campus to Tech Career",
+      "category": "Seminar",
+      "date": "28/09/2026, Monday",
+      "mode": "Online",
+      "description": "Our exclusive seminar 'From Campus to Tech Career' bridged the gap between academic life and the dynamic technology industry. Attendees decoded career roadmaps, learned insider tips for landing dream roles, and gained actionable strategies, clarity, and momentum to confidently launch their futures in tech.",
+      "image": "/events/TechToCampus_seminar_banner.png",
+      "imagePosition": "center 28%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Palak Aggarwal"
+      ]
+    },
+    {
+      "id": "event-06",
+      "title": "Kaggle Prep: From Dataset to Data Analysis",
+      "category": "Seminar",
+      "date": "19/09/2026",
+      "mode": "Online",
+      "description": "Our comprehensive Kaggle Preparation session equipped participants with essential skills, strategies, and insider tips to excel in data science competitions. Attendees explored everything from navigating datasets and building robust models to optimizing submissions and climbing leaderboards.",
+      "image": "/events/KagglePrep_banner.png",
+      "imagePosition": "center 28%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Sumit Gavali"
+      ]
+    },
+    {
+      "id": "event-07",
+      "title": "OBE – Knowledge Profiles",
+      "category": "Seminar",
+      "date": "24/03/2026, Tuesday",
+      "mode": "Online",
+      "description": "This expert session explored Outcome-Based Education (OBE) Knowledge Profiles, diving deep into how structured knowledge frameworks align academic learning with real-world competency standards. Dr. Seshachalam shared insights that helped faculty and students understand the principles behind outcome-driven curriculum design.",
+      "image": "/events/Seminar Images/expert session 15.jpg",
+      "imagePosition": "center 22%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Dr. Seshachalam"
+      ]
+    },
+    {
+      "id": "event-08",
+      "title": "Best Practices for OBE – Innovative TLP and Pedagogies",
+      "category": "Seminar",
+      "date": "23/03/2026, Monday",
+      "mode": "Online",
+      "description": "Dr. B R Shambhavi delivered an insightful session on Outcome-Based Education, focusing on innovative Teaching, Learning, and Pedagogy (TLP) strategies. Attendees gained practical tools and modern pedagogical approaches to elevate the quality of technical education and foster a culture of continuous academic improvement.",
+      "image": "/events/Seminar Images/expert session 14.jpg",
+      "imagePosition": "center 20%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Dr. B R Shambhavi"
+      ]
+    },
+    {
+      "id": "event-09",
+      "title": "Best Practices for IQAC",
+      "category": "Seminar",
+      "date": "20/03/2026, Friday",
+      "mode": "Online",
+      "description": "Dr. Prashant R. Nair, Associate Director of IQAC at Amrita Vishwa Vidyapeetham, led a comprehensive session on best practices for Internal Quality Assurance Cells. The session covered frameworks for maintaining institutional standards, accreditation processes, and data-driven quality enhancement mechanisms in higher education.",
+      "image": "/events/Seminar Images/expert session 16.jpg",
+      "imagePosition": "center 20%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Dr. Prashant R. Nair"
+      ]
+    },
+    {
+      "id": "event-10",
+      "title": "Deep Generative Models: Creating Intelligence That Imagines",
+      "category": "Seminar",
+      "date": "15/04/2026, Wednesday",
+      "mode": "Online",
+      "description": "Mr. Ashutosh Rana from Cherryroad Technologies, USA, guided students through the fascinating world of deep generative models. The session covered the foundational principles behind GANs and VAEs, their architectures, and how they are revolutionising creative AI applications across industries — from image synthesis to drug discovery.",
+      "image": "/events/Seminar Images/expert session 3.jpg",
+      "imagePosition": "center 18%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Mr. Ashutosh Rana"
+      ]
+    },
+    {
+      "id": "event-11",
+      "title": "Emergence of Foundation Models and Agentic Systems",
+      "category": "Seminar",
+      "date": "16/02/2026, Monday",
+      "mode": "Online",
+      "description": "Mr. Saransh Dave, ML Engineer II at Clutterbot Inc., delivered a forward-looking session on the rise of large foundation models and the next generation of agentic AI systems. Attendees explored how these models are reshaping the AI landscape, enabling autonomous task completion and multi-step reasoning pipelines.",
+      "image": "/events/Seminar Images/expert session 4.jpg",
+      "imagePosition": "center 20%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Mr. Saransh Dave"
+      ]
+    },
+    {
+      "id": "event-12",
+      "title": "Linear Regression & Decision Trees: Teaching Machines to Predict the Future",
+      "category": "Seminar",
+      "date": "11/02/2026, Wednesday",
+      "mode": "Online",
+      "description": "Mrs. Sangita Chakraborty Bagchi led an engaging session on two cornerstone machine learning algorithms — Linear Regression and Decision Trees. Students gained hands-on understanding of how these models learn from data, the mathematics behind their predictions, and how to evaluate and tune them for real-world classification and regression tasks.",
+      "image": "/events/Seminar Images/expert session 5.jpg",
+      "imagePosition": "center 18%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Mrs. Sangita Chakraborty Bagchi"
+      ]
+    },
+    {
+      "id": "event-13",
+      "title": "Understanding Startup & Vision Building",
+      "category": "Seminar",
+      "date": "11/02/2026, Wednesday",
+      "mode": "Offline",
+      "description": "Mr. Rahul Vats, Founder of CEREVIA and alumnus of IIT Mandi, led an energising session on entrepreneurship and vision building. Students discovered how successful startups craft their core mission, define their value proposition, and turn raw ideas into executable visions — blending business acumen with startup-world realities.",
+      "image": "/events/Seminar Images/expert session 10.jpg",
+      "imagePosition": "center 25%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Mr. Rahul Vats"
+      ]
+    },
+    {
+      "id": "event-14",
+      "title": "Immersion and Exchange Programs",
+      "category": "Seminar",
+      "date": "29/01/2026",
+      "mode": "Offline",
+      "description": "Dr. Nitin Sakhare, Chief International Relations Officer (CIRO) at VIT and VU, conducted an informative session on global immersion and academic exchange opportunities available to students. The session highlighted pathways to international exposure, research collaborations, and exchange programmes that can shape students' global career prospects.",
+      "image": "/events/Seminar Images/Expert Session 12.jpg",
+      "imagePosition": "center 18%",
+      "status": "Completed",
+      "featured": false,
+      "speakers": [
+        "Dr. Nitin Sakhare"
+      ]
+    }
+  ]
+}

@@ -7,7 +7,8 @@ import { Mail, Shield, User } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 
 export default function Team() {
-  const { faculty, committee } = teamData;
+  const { hod, faculty, committee } = teamData;
+  const leadership = [hod, faculty].filter(Boolean);
   const [selectedCommittee, setSelectedCommittee] = useState("all");
 
   const filteredCommittee =
@@ -24,8 +25,8 @@ export default function Team() {
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12">
-        {/* 1. FACULTY MENTOR SECTION */}
-        {faculty && (
+        {/* 1. FACULTY LEADERSHIP SECTION */}
+        {leadership.length > 0 && (
           <div className="mb-16">
             <div className="flex items-center gap-2 mb-4 pb-2 border-b border-[#262626]">
               <Shield className="w-4 h-4 text-[#FFFFFF]" />
@@ -34,62 +35,69 @@ export default function Team() {
               </span>
             </div>
 
-            <div className="rounded-2xl border border-[#262626] bg-[#0D0D0D] p-6 sm:p-8 hover:border-[#404040] transition-colors">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                <div className="md:col-span-3 flex justify-center">
-                  <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-[#000000] border border-[#262626] overflow-hidden flex items-center justify-center">
-                    {faculty.photo ? (
-                      <img
-                        src={faculty.photo}
-                        alt={faculty.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <User className="w-12 h-12 text-[#737373]" />
-                    )}
+            <div className="space-y-6">
+              {leadership.map((person, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-[#262626] bg-[#0D0D0D] p-6 sm:p-8 hover:border-[#404040] transition-colors"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div className="md:col-span-3 flex justify-center">
+                      <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-[#000000] border border-[#262626] overflow-hidden flex items-center justify-center">
+                        {person.photo ? (
+                          <img
+                            src={person.photo}
+                            alt={person.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <User className="w-12 h-12 text-[#737373]" />
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="md:col-span-9 flex flex-col justify-between">
+                      <div>
+                        <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-[#0D0D0D] text-[#00A3FF] border border-[#262626] inline-block mb-2">
+                          {person.designation}
+                        </span>
+                        <h2 className="text-2xl font-bold text-[#FFFFFF] tracking-tight">
+                          {person.name}
+                        </h2>
+                        <p className="text-xs text-[#A3A3A3] font-mono mt-0.5 mb-3">
+                          {person.department}
+                        </p>
+                        <p className="text-sm text-[#A3A3A3] leading-relaxed max-w-3xl">
+                          {person.bio}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-3 mt-5 pt-4 border-t border-[#262626]">
+                        {person.linkedin && (
+                          <a
+                            href={person.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg bg-[#000000] border border-[#262626] hover:border-[#404040] text-[#A3A3A3] hover:text-[#00A3FF] transition-colors"
+                            aria-label="LinkedIn Profile"
+                          >
+                            <LinkedinIcon className="w-4 h-4" />
+                          </a>
+                        )}
+                        {person.email && (
+                          <a
+                            href={`mailto:${person.email}`}
+                            className="p-2 rounded-lg bg-[#000000] border border-[#262626] hover:border-[#404040] text-[#A3A3A3] hover:text-[#00A3FF] transition-colors"
+                            aria-label="Email Contact"
+                          >
+                            <Mail className="w-4 h-4" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div className="md:col-span-9 flex flex-col justify-between">
-                  <div>
-                    <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-[#0D0D0D] text-[#00A3FF] border border-[#262626] inline-block mb-2">
-                      {faculty.designation}
-                    </span>
-                    <h2 className="text-2xl font-bold text-[#FFFFFF] tracking-tight">
-                      {faculty.name}
-                    </h2>
-                    <p className="text-xs text-[#A3A3A3] font-mono mt-0.5 mb-3">
-                      {faculty.department}
-                    </p>
-                    <p className="text-sm text-[#A3A3A3] leading-relaxed max-w-3xl">
-                      {faculty.bio}
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-3 mt-5 pt-4 border-t border-[#262626]">
-                    {faculty.linkedin && (
-                      <a
-                        href={faculty.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-[#000000] border border-[#262626] hover:border-[#404040] text-[#A3A3A3] hover:text-[#00A3FF] transition-colors"
-                        aria-label="LinkedIn Profile"
-                      >
-                        <LinkedinIcon className="w-4 h-4" />
-                      </a>
-                    )}
-                    {faculty.email && (
-                      <a
-                        href={`mailto:${faculty.email}`}
-                        className="p-2 rounded-lg bg-[#000000] border border-[#262626] hover:border-[#404040] text-[#A3A3A3] hover:text-[#00A3FF] transition-colors"
-                        aria-label="Email Contact"
-                      >
-                        <Mail className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         )}

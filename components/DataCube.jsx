@@ -134,9 +134,9 @@ export default function DataCube() {
     scene.background = new THREE.Color(0x000000);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    // Adjusted for screen size
+    // Adjusted for screen size: compact centered cube on mobile, full-screen view
     const isMobile = width < 1024;
-    camera.position.set(0, 0, isMobile ? 9.4 : 7.5);
+    camera.position.set(0, 0, isMobile ? 9.6 : 7.5);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -147,7 +147,7 @@ export default function DataCube() {
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     const domElement = renderer.domElement;
-    domElement.style.touchAction = "none";
+    domElement.style.touchAction = isMobile ? "pan-y" : "none";
     container.appendChild(domElement);
 
     // --- Clean Space Lighting ---
@@ -323,6 +323,30 @@ export default function DataCube() {
     const initialEuler = new THREE.Euler(0.2, 0.45, 0, "YXZ");
     cubeMesh.quaternion.setFromEuler(initialEuler);
 
+    // Responsive camera and scale updater to prevent cut-off on mobile
+    function updateResponsiveView(w, h) {
+      const isMob = w < 1024;
+      const aspect = w / h;
+      camera.aspect = aspect;
+
+      if (isMob) {
+        // Scaled to be comfortably bigger while staying fully within viewport
+        cubeMesh.scale.setScalar(0.78);
+        // Distance calculation guaranteeing wide horizontal margin on all phone aspect ratios
+        camera.position.z = Math.max(11.2, 6.8 / Math.min(aspect, 0.9));
+        domElement.style.touchAction = "pan-y";
+      } else {
+        cubeMesh.scale.setScalar(1.0);
+        camera.position.z = 7.5;
+        domElement.style.touchAction = "none";
+      }
+
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    }
+
+    updateResponsiveView(width, height);
+
     // --- Virtual Arcball Drag Physics (Zero Gimbal Lock) ---
     function getArcballVector(clientX, clientY) {
       const rect = domElement.getBoundingClientRect();
@@ -351,22 +375,74 @@ export default function DataCube() {
     let lastInteractionTime = performance.now();
 
     const autoRotateAxis = new THREE.Vector3(0.2, 1, 0.12).normalize();
+    const raycaster = new THREE.Raycaster();
+    const pointerVec = new THREE.Vector2();
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let gestureIntent = "none"; // "none" | "pending" | "rotate" | "scroll"
 
     const onPointerDown = (e) => {
-      isPointerDown = true;
-      snapTargetRef.current = null;
-      activePointerId = e.pointerId;
-      lastInteractionTime = performance.now();
-      angularSpeed = 0;
-      prevArcballVec = getArcballVector(e.clientX, e.clientY);
+      const isMob = window.innerWidth < 1024;
+      touchStartX = e.clientX;
+      touchStartY = e.clientY;
 
-      try {
-        domElement.setPointerCapture(e.pointerId);
-      } catch (err) {}
+      if (isMob) {
+        const rect = domElement.getBoundingClientRect();
+        pointerVec.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        pointerVec.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(pointerVec, camera);
+        const hits = raycaster.intersectObject(cubeMesh, true);
+        if (hits.length === 0) {
+          // Touch is outside the 3D cube mesh: completely ignore so browser scrolls
+          gestureIntent = "scroll";
+          return;
+        }
+        gestureIntent = "pending";
+      } else {
+        gestureIntent = "rotate";
+        isPointerDown = true;
+        snapTargetRef.current = null;
+        activePointerId = e.pointerId;
+        lastInteractionTime = performance.now();
+        angularSpeed = 0;
+        prevArcballVec = getArcballVector(e.clientX, e.clientY);
+        try {
+          domElement.setPointerCapture(e.pointerId);
+        } catch (err) {}
+      }
     };
 
     const onPointerMove = (e) => {
-      if (!isPointerDown) return;
+      const isMob = window.innerWidth < 1024;
+
+      if (isMob && gestureIntent === "pending") {
+        const dx = Math.abs(e.clientX - touchStartX);
+        const dy = Math.abs(e.clientY - touchStartY);
+
+        // Wait until slight threshold to determine intent
+        if (dx < 6 && dy < 6) return;
+
+        // If moving vertically, user is scrolling the webpage!
+        if (dy > dx * 1.1) {
+          gestureIntent = "scroll";
+          return;
+        } else {
+          // User is dragging horizontally across the cube: start rotation!
+          gestureIntent = "rotate";
+          isPointerDown = true;
+          snapTargetRef.current = null;
+          activePointerId = e.pointerId;
+          lastInteractionTime = performance.now();
+          angularSpeed = 0;
+          prevArcballVec = getArcballVector(e.clientX, e.clientY);
+          try {
+            domElement.setPointerCapture(e.pointerId);
+          } catch (err) {}
+        }
+      }
+
+      if (gestureIntent !== "rotate" || !isPointerDown) return;
       lastInteractionTime = performance.now();
 
       const currVec = getArcballVector(e.clientX, e.clientY);
@@ -391,6 +467,7 @@ export default function DataCube() {
 
     const onPointerUp = (e) => {
       isPointerDown = false;
+      gestureIntent = "none";
       lastInteractionTime = performance.now();
       if (activePointerId !== null) {
         try {
@@ -447,10 +524,10 @@ export default function DataCube() {
       const now = performance.now();
       const timeSinceInteraction = (now - lastInteractionTime) / 1000;
 
-      // Subtle celestial floating (shifted higher on mobile to give generous spacing below for the card)
+      // Shifted up into the empty space to center between top nav pills and bottom card
       const isMob = container.clientWidth < 1024;
-      const baseY = isMob ? 0.55 : 0;
-      cubeMesh.position.y = baseY + Math.sin(elapsedTime * 1.2) * 0.08;
+      const baseY = isMob ? 1.30 : 0;
+      cubeMesh.position.y = baseY + Math.sin(elapsedTime * 1.2) * 0.03;
 
       if (!prefersReducedMotion) {
         // Deep stars slow drift
@@ -491,11 +568,7 @@ export default function DataCube() {
       const nw = container.clientWidth;
       const nh = container.clientHeight;
       if (nw > 0 && nh > 0) {
-        camera.aspect = nw / nh;
-        const isMob = nw < 1024;
-        camera.position.z = isMob ? 9.4 : 7.5;
-        camera.updateProjectionMatrix();
-        renderer.setSize(nw, nh);
+        updateResponsiveView(nw, nh);
       }
     });
     resizeObserver.observe(container);
@@ -589,36 +662,18 @@ export default function DataCube() {
   };
 
   return (
-    <div className="relative w-full min-h-[860px] sm:min-h-[880px] lg:min-h-0 lg:h-full select-none bg-black flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
-      {/* Full-Screen 3D Deep Space Canvas */}
+    <div className="relative w-full min-h-[calc(100vh-4rem)] lg:min-h-0 lg:h-full select-none bg-black flex flex-col justify-between overflow-x-hidden lg:overflow-hidden py-3 lg:py-0">
+      
+      {/* Full-Screen 3D Deep Space Canvas: Borderless, Immersive Experience */}
       <div
         ref={containerRef}
         className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing z-0"
       />
 
       {/* ─────────────────────────────────────────────────────────────
-          1. DESKTOP VIEW: Balanced 6-Position Layout (3 Left, 3 Right)
+          1. MOBILE TOP NAVIGATION BAR
           ───────────────────────────────────────────────────────────── */}
-      <div className="hidden lg:flex absolute inset-0 pointer-events-none items-center justify-between px-6 xl:px-14 z-20">
-        
-        {/* Left Column (3 Domains) */}
-        <div className="flex flex-col gap-5 sm:gap-6 w-60 xl:w-72 pointer-events-auto">
-          {leftDomains.map((domain, idx) => renderDomainCard(domain, idx))}
-        </div>
-
-        {/* Right Column (3 Domains) */}
-        <div className="flex flex-col gap-5 sm:gap-6 w-60 xl:w-72 pointer-events-auto">
-          {rightDomains.map((domain, idx) => renderDomainCard(domain, idx + 3))}
-        </div>
-
-      </div>
-
-      {/* ─────────────────────────────────────────────────────────────
-          2. MOBILE VIEW: Top Nav, Centered 3D Cube, and Spaced Bottom Info
-          ───────────────────────────────────────────────────────────── */}
-      
-      {/* Mobile Top Navigation Bar */}
-      <div className="lg:hidden relative z-20 pt-4 px-3 flex justify-center pointer-events-auto">
+      <div className="lg:hidden relative z-20 pt-1 px-3 flex justify-center pointer-events-auto">
         <div
           ref={navScrollRef}
           className="flex items-center gap-2 p-1.5 rounded-full bg-zinc-950/90 border border-zinc-800/90 backdrop-blur-lg overflow-x-auto max-w-full scrollbar-none shadow-2xl scroll-smooth"
@@ -643,12 +698,31 @@ export default function DataCube() {
         </div>
       </div>
 
-      {/* Mobile Middle Spacer: Dedicated open space for 3D Cube interaction */}
-      <div className="lg:hidden flex-1 min-h-[440px] pointer-events-none" />
+      {/* ─────────────────────────────────────────────────────────────
+          2. DESKTOP VIEW: Balanced 6-Position Layout (3 Left, 3 Right)
+          ───────────────────────────────────────────────────────────── */}
+      <div className="hidden lg:flex absolute inset-0 pointer-events-none items-center justify-between px-6 xl:px-14 z-20">
+        
+        {/* Left Column (3 Domains) */}
+        <div className="flex flex-col gap-5 sm:gap-6 w-60 xl:w-72 pointer-events-auto">
+          {leftDomains.map((domain, idx) => renderDomainCard(domain, idx))}
+        </div>
 
-      {/* Mobile Bottom Domain Info Drawer: Generous spacing below the 3D cube */}
-      <div className="lg:hidden relative z-20 px-4 pt-8 pb-14 sm:pb-16 flex justify-center pointer-events-auto">
-        <div className="w-full max-w-md p-4 sm:p-5 rounded-xl bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl shadow-2xl flex flex-col gap-2">
+        {/* Right Column (3 Domains) */}
+        <div className="flex flex-col gap-5 sm:gap-6 w-60 xl:w-72 pointer-events-auto">
+          {rightDomains.map((domain, idx) => renderDomainCard(domain, idx + 3))}
+        </div>
+
+      </div>
+
+      {/* Mobile Center Spacer (Transparent, borderless space for centered cube) */}
+      <div className="lg:hidden flex-1 min-h-[300px] pointer-events-none" />
+
+      {/* ─────────────────────────────────────────────────────────────
+          3. MOBILE VIEW: Bottom Domain Info Card
+          ───────────────────────────────────────────────────────────── */}
+      <div className="lg:hidden relative z-20 px-4 pt-2 pb-8 flex justify-center pointer-events-auto">
+        <div className="w-full max-w-md p-4 pr-16 sm:pr-4 rounded-xl bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl shadow-2xl flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-white" />
